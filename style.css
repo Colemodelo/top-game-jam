@@ -56,8 +56,8 @@ table {
 
 #game {
     display: grid;
-    grid-template-columns: repeat(15, 1fr);
-    grid-template-rows: repeat(15, 1fr);
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
     height: 540px;
     width: 960px;
     background-image: url(images/pxArt.png);
@@ -69,7 +69,13 @@ table {
 	margin-top: 5px;
 	grid-area: 1 / 1 /  1 /  5;
 }
+
 .heart{
 	height: 25px;
+}
+
+#buck-idle{
+	height: 165px;
+	grid-area: 17 / 2 /  11 / 5;
 }
 
