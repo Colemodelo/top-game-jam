@@ -4,28 +4,32 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>TOP Game Jam</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div id="container">
-            <main id="game">
-                <button id="myBtn">Change Animation</button>
-                <aside id="health">
-                    <img class="heart" src="assets/heart.png">
-                    <img class="heart" src="assets/heart.png">
-                    <img class="heart" src="assets/heart.png">
-                    <img class="heart" src="assets/heart.png">
-                    <img class="heart" src="assets/heart.png">
-                </aside>
-                <img id="buck-idle" src="assets/buck/buck-idle.gif">
-            </main>
-        </div>
-        <script src="script.js" async defer></script>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>TOP Game Jam</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <main id="game">
+        <button id="changeAnimBtn">Change Animation</button>
+        <button id="openModalBtn">Open Modal</button>
+        <aside id="health">
+          <img class="heart" src="assets/heart.png" />
+          <img class="heart" src="assets/heart.png" />
+          <img class="heart" src="assets/heart.png" />
+          <img class="heart" src="assets/heart.png" />
+          <img class="heart" src="assets/heart.png" />
+        </aside>
+        <div id="box"></div>
+        <img id="buck" src="assets/buck/buck-idle.gif" />
+      </main>
+    </div>
+
+    <script src="script/script.js" type="module" async defer></script>
+    <script src="script/math.js" type="module" async defer></script>
+  </body>
 </html>
