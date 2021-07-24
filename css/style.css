@@ -23,6 +23,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -60,7 +61,7 @@ table {
     grid-template-rows: repeat(16, 1fr);
     height: 540px;
     width: 960px;
-    background-image: url(../images/pxArt.png);
+    background-image: url("../assets/images/pxArt.png");
     background-size: 100%;
 }
 
@@ -84,8 +85,7 @@ table {
 	grid-area: 17 / 2 /  11 / 5;
 }
 
-<<<<<<< HEAD:css/style.css
-
+/* -------------------------------- animation ------------------------------- */
 
 #box{
 	display: none;
@@ -99,11 +99,12 @@ table {
 
 .show {
 	display: block;
-=======
+}
+
 #blob-idle {
-    height: 175px; 
-    width: 80px; 
-    background: url("assets/blob_idle.png") 0 0 no-repeat;
+    height: 175px;
+    width: 80px;
+    background: url("../assets/blob_idle.png") 0 0 no-repeat;
     animation: animate 0.8s steps(8) infinite;
     transform: scale(4);
     grid-area: 12 / 17 / 17 / 12;
@@ -154,5 +155,4 @@ table {
     to {
         background-position: -800px;
     }
->>>>>>> main:style.css
 }
