@@ -85,7 +85,6 @@ table {
 	grid-area: 17 / 2 /  11 / 5;
 }
 
-/* -------------------------------- animation ------------------------------- */
 
 #box{
 	display: none;
@@ -99,60 +98,4 @@ table {
 
 .show {
 	display: block;
-}
-
-#blob-idle {
-    height: 175px;
-    width: 80px;
-    background: url("../assets/blob_idle.png") 0 0 no-repeat;
-    animation: animate 0.8s steps(8) infinite;
-    transform: scale(4);
-    grid-area: 12 / 17 / 17 / 12;
-}
-
-/* #blob-death {
-    height: 640px;
-    width: 80px;
-    background: url("assets/blob\ death.png") 0 0 no-repeat;
-    animation: animate 0.8s steps(8) infinite;
-    transform: scale(4);
-    grid-area: 5 / 20 / 15 / 15;
-} */
-
-
-/* #blob-attack {
-    height: 800px;
-    width: 80px;
-    background: url("assets/blob\ attack.png") 0 0 no-repeat;
-    animation: attack 0.8s steps(10) infinite;
-    transform: scale(4);
-    grid-area: 5 / 20 / 15 / 13;
-} */
-
-
-/* #blob-move {
-    height: 640px;
-    width: 80px;
-    background: url("assets/blob\ move.png") 0 0 no-repeat;
-    animation: animate 0.8s steps(8) infinite;
-    transform: scale(4);
-    grid-area: 10 / 25 / 15 / 12;
-} */
-
-@keyframes animate {
-    from {
-        background-position: 0;
-    }
-    to {
-        background-position: -640px;
-    }
-}
-
-@keyframes attack {
-    from {
-        background-position: 0;
-    }
-    to {
-        background-position: -800px;
-    }
 }
