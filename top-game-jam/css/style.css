@@ -1,0 +1,146 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/* -------------------------------------------------------------------------- */
+/*                                  Main CSS                                  */
+/* -------------------------------------------------------------------------- */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+h2{
+	font-size: 2rem;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#game {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    height: 540px;
+    width: 960px;
+    background-image: url("../assets/images/pxArt.png");
+    background-size: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Components                                 */
+/* -------------------------------------------------------------------------- */
+
+#health {
+	margin-left: 5px;
+	margin-top: 5px;
+	grid-area: 1 / 1 /  1 /  5;
+}
+
+.heart{
+	height: 25px;
+}
+
+/* ------------------------------- Characters ------------------------------- */
+
+#buck{
+	height: 165px;
+	grid-area: 17 / 2 /  11 / 5;
+}
+
+#buck-idle{
+	height: 175px;
+	grid-area: 17 / 2 /  11 / 5;
+}
+
+/* --------------------------- Math Questions Box --------------------------- */
+
+#box{
+	align-items: center;
+	background: rgba(0, 0, 0, 0.5);
+	grid-area: 3 / 5 / 10 / 13;
+	text-align: center;
+}
+ 
+#prompt{
+	padding-top: 1.25rem;
+	font-size: 2rem;
+	color: chartreuse;
+	grid-area: 3 / 5 / 5 / 13;
+}
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+.choice {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: chartreuse;
+	font-size: 1.5rem;
+	border: 2px solid black;
+}
+#answer1{
+	grid-area: 6 / 6 / 6 / 8;
+}
+#answer2{
+	grid-area: 6 / 10 / 6 / 12;
+}
+#answer3{
+	grid-area: 8 / 6 / 8 / 8;
+}
+#answer4{
+	grid-area: 8 / 10 / 8 / 12;
+}
+#promptBtn{
+	grid-area: 11 / 8 / 12 / 10;
+}
