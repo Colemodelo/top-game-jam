@@ -3,6 +3,10 @@
    License: none (public domain)
 */
 
+/* -------------------------------------------------------------------------- */
+/*                                  Main CSS                                  */
+/* -------------------------------------------------------------------------- */
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -65,6 +69,10 @@ table {
     background-size: 100%;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                 Components                                 */
+/* -------------------------------------------------------------------------- */
+
 #health {
 	margin-left: 5px;
 	margin-top: 5px;
@@ -74,6 +82,8 @@ table {
 .heart{
 	height: 25px;
 }
+
+/* ------------------------------- Characters ------------------------------- */
 
 #buck{
 	height: 165px;
@@ -85,9 +95,11 @@ table {
 	grid-area: 17 / 2 /  11 / 5;
 }
 
+/* --------------------------- Math Questions Box --------------------------- */
 
 #box{
-	display: none;
+	color: white;
+	display: block;
 	background: rgba(0, 0, 0, 0.5);
 	grid-area: 3 / 5 / 10 / 13;
 }
