@@ -4,9 +4,9 @@
 
 var turnCounter = 0
 var mathObj = {
-  promptString : '',
-  answers : [],
-  correctAnswer : 0
+  promptString: "",
+  answers: [],
+  correctAnswer: 0,
 }
 
 /* -------------------------------------------------------------------------- */
@@ -76,6 +76,7 @@ function renderQuestion() {
   answer3.innerHTML = mathObj.answers[2]
   let answer4 = document.getElementById("answer3")
   answer4.innerHTML = mathObj.answers[3]
+  moveBar(10)
 }
 
 // function timer(level, difficulty) {
@@ -102,8 +103,8 @@ function renderQuestion() {
 // }
 
 // Check answer
-function checkAnswer(chosenAnswerId) {
-  let chosenAnswer = document.getElementById(chosenAnswerId).innerHTML
+function checkAnswer(chosenAnswerDivId) {
+  let chosenAnswer = document.getElementById(chosenAnswerDivId).innerHTML
   if (chosenAnswer == mathObj.correctAnswer) {
     console.log("Correct!")
     return true
@@ -111,6 +112,47 @@ function checkAnswer(chosenAnswerId) {
     console.log("Wrong!")
     return false
   }
+}
+
+// var i = 0;
+// function moveBar(time) {
+//   if (i == 0) {
+//     i = 1;
+//     var elem = document.getElementById("timerBar");
+//     var width = 10;
+//     clearInterval(id);
+//     var id = setInterval(frame, time);
+//     function frame() {
+//       if (width >= 100) {
+//         clearInterval(id);
+//         i = 0;
+//       } else {
+//         width++;
+//         elem.style.width = width + "%";
+//         elem.innerHTML = width + "%";
+//       }
+//     }
+//   }
+// }
+
+function moveBar(time) {
+  var timerElement = document.getElementById("timerBar")
+  var timerText = document.getElementById("timerText")
+  timerElement.style.display = "block"
+  var time = time
+  let downloadTimer = setInterval(function () {
+    timerElement.value = 10
+    if (time <= 0) {
+      clearInterval(downloadTimer)
+      timerText.innerHTML = "Finished";
+    } else {
+      timerText.innerHTML = time + " seconds remaining";
+    }
+    timerElement.value = 10 - time
+    time -= 1
+  }, 1000)
+  // timerElement.style.display = "none"
+
 }
 
 // function gameOver() {}
