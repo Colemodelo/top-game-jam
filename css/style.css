@@ -51,6 +51,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+h2{
+	font-size: 2rem;
+}
 
 #container {
     display: flex;
@@ -98,12 +101,20 @@ table {
 /* --------------------------- Math Questions Box --------------------------- */
 
 #box{
-	color: white;
-	display: block;
+	color: chartreuse;
+
+	align-items: center;
 	background: rgba(0, 0, 0, 0.5);
 	grid-area: 3 / 5 / 10 / 13;
+	text-align: center;
 }
 
+#prompt{
+	padding-top: 1.25rem;
+	font-size: 2rem;
+	color: chartreuse;
+	grid-area: 3 / 5 / 5 / 13;
+}
 .hide {
 	display: none;
 }
@@ -111,3 +122,28 @@ table {
 .show {
 	display: block;
 }
+
+.choice {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: chartreuse;
+	font-size: 1.5rem;
+	border: 2px solid black;
+}
+#answer1{
+	grid-area: 6 / 6 / 6 / 8;
+}
+#answer2{
+	grid-area: 6 / 10 / 6 / 12;
+}
+#answer3{
+	grid-area: 8 / 6 / 8 / 8;
+}
+#answer4{
+	grid-area: 8 / 10 / 8 / 12;
+}
+#promptBtn{
+	grid-area: 11 / 8 / 12 / 10;
+}
+
