@@ -3,6 +3,8 @@
 /* -------------------------------------------------------------------------- */
 var hearts = 5
 var turnCounter = 0
+var difficultyTime = 5
+
 var mathObj = {
   promptString: "",
   answers: [],
@@ -11,7 +13,6 @@ var mathObj = {
 
 var timerObj = ""
 
-var difficultyTime = 5
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
@@ -125,7 +126,6 @@ function moveTime(time) {
   timerBar.max = time
   timerBar.value = 0
   timerText.innerHTML = time + " seconds remaining"
-
   timerElement.style.display = "block"
 
   clearInterval(timerObj)
@@ -134,7 +134,7 @@ function moveTime(time) {
     timerElement.value = time
     if (iter <= 0) {
       roundLose()
-      clearInterval(timerObj)
+      timerElement.style.display = "none"
     } else {
       timerText.innerHTML = iter + " seconds remaining"
     }
@@ -142,7 +142,6 @@ function moveTime(time) {
     iter -= 1
   }, 1000)
 
-  // timerElement.style.display = "none"
 }
 
 // function gameOver() {}
@@ -151,20 +150,17 @@ function moveTime(time) {
 /*                                  Game Loop                                 */
 /* -------------------------------------------------------------------------- */
 
-renderHealth()
 
+function game() {
+    renderHealth()
+    renderQuestion()
 
+    if (hearts == 0){
+      gameover()
+    } else {
+      game()
+    }
+}
 
-// function startGame() {
-//   while (true) {
-//     renderQuestion()
-//     if (checkAnswer(answer)) {
-//       playerAnimate()
-//     } else {
-//       enemyAnimate()
-//     }
-//     if (hearts == 0){
-//       gameover()
-//     }
-//   }
-// }
+// recursive loop mwuhahaha
+game()
