@@ -13,12 +13,8 @@
     grid-area: 12 / 17 / 17 / 12;
 }
 
-<<<<<<< HEAD
-/* .blob-death {
-=======
 
 /* #blob-death {
->>>>>>> alison-branch
     height: 640px;
     width: 80px;
     background: url("../assets/blob/blob death.png") 0 0 no-repeat;
@@ -28,13 +24,9 @@
 } */
 
 
-<<<<<<< HEAD
-.blob-attack {
-=======
 /* #blob-attack {
     height: 80px;
     width: 80px;
->>>>>>> alison-branch
     background: url("../assets/blob/blob_attack.png") 0 0 no-repeat;
     animation: attack 0.8s steps(10) infinite;
     transform: scale(4);
