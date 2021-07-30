@@ -12,28 +12,31 @@
     grid-area: 12 / 17 / 17 / 12;
 }
 
+
 /* #blob-death {
     height: 640px;
     width: 80px;
-    background: url("assets/blob_death.png") 0 0 no-repeat;
+    background: url("../assets/blob/blob death.png") 0 0 no-repeat;
     animation: animate 0.8s steps(8) infinite;
     transform: scale(4);
     grid-area: 5 / 20 / 15 / 15;
 } */
 
 
-#blob-attack {
+/* #blob-attack {
+    height: 80px;
+    width: 80px;
     background: url("../assets/blob/blob_attack.png") 0 0 no-repeat;
     animation: attack 0.8s steps(10) infinite;
     transform: scale(4);
     grid-area: 12 / 17 / 17 / 12;
-}
+} */
 
 
 /* #blob-move {
     height: 640px;
     width: 80px;
-    background: url("assets/blob\ move.png") 0 0 no-repeat;
+    background: url("../assets/blob/blob move.png") 0 0 no-repeat;
     animation: animate 0.8s steps(8) infinite;
     transform: scale(4);
     grid-area: 10 / 25 / 15 / 12;
