@@ -16,21 +16,16 @@
   <body>
     <div id="container">
       <main id="game">
-        <aside id="health">
-          <img class="heart" src="assets/heart.png" />
-          <img class="heart" src="assets/heart.png" />
-          <img class="heart" src="assets/heart.png" />
-          <img class="heart" src="assets/heart.png" />
-          <img class="heart" src="assets/heart.png" />
-        </aside>
+        <aside id="health"></aside>
         <img id="buck-idle" src="assets/buck/buck-idle.gif" />
         <div class="blob-idle"></div>
 
         <button id="promptBtn">Generate Math Problem</button>
 
-        <progress value="0" max="10" id="timerBar">
-        </progress>
-        <div id="timerText">5 seconds remaining</div>
+        <div id="timerElement">
+          <progress id="timerBar"></progress>
+          <div id="timerText"></div>
+        </div>
 
 
         <div id="box">

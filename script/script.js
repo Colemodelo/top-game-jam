@@ -1,13 +1,17 @@
 /* -------------------------------------------------------------------------- */
 /*                              Global variables                              */
 /* -------------------------------------------------------------------------- */
-
+var hearts = 5
 var turnCounter = 0
 var mathObj = {
   promptString: "",
   answers: [],
   correctAnswer: 0,
 }
+
+var timerObj = ""
+
+var difficultyTime = 5
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
@@ -64,6 +68,14 @@ function askMath(mathObj) {
 //   }
 // }
 
+function renderHealth() {
+  for (let i = 0; i < hearts; i++) {
+    let img = document.createElement("img")
+    img.src = "assets/heart.png"
+    document.getElementById("health").appendChild(img)
+  }
+}
+
 function renderQuestion() {
   askMath(mathObj)
   document.getElementById("box").style.display = "block"
@@ -76,31 +88,16 @@ function renderQuestion() {
   answer3.innerHTML = mathObj.answers[2]
   let answer4 = document.getElementById("answer3")
   answer4.innerHTML = mathObj.answers[3]
-  moveBar(10)
+  moveTime(difficultyTime)
 }
 
-// function timer(level, difficulty) {
-//   // countdown every second
-//   setInterval(function () {}, 1000)
-//   clearInterval(x)
-
-//   // After 5 seconds, check answer
-//   setTimeout(function () {
-//     if (checkAnswer) {
-//       playerAnimate()
-//     } else {
-//       enemyAnimate()
-//     }
-//   }, 5000)
-// }
-
-// function chooseDifficulty() {
-//   // ask difficulty
-//   document.getElementById("box").style.display = "block"
-//   document.getElementById("prompt").innerHTML = "Choose your difficulty level"
-//   // pause execution
-//   // start execution again
-// }
+function chooseDifficulty() {
+  // ask difficulty
+  document.getElementById("box").style.display = "block"
+  document.getElementById("prompt").innerHTML = "Choose your difficulty level"
+  // pause execution
+  // start execution again
+}
 
 // Check answer
 function checkAnswer(chosenAnswerDivId) {
@@ -114,45 +111,38 @@ function checkAnswer(chosenAnswerDivId) {
   }
 }
 
-// var i = 0;
-// function moveBar(time) {
-//   if (i == 0) {
-//     i = 1;
-//     var elem = document.getElementById("timerBar");
-//     var width = 10;
-//     clearInterval(id);
-//     var id = setInterval(frame, time);
-//     function frame() {
-//       if (width >= 100) {
-//         clearInterval(id);
-//         i = 0;
-//       } else {
-//         width++;
-//         elem.style.width = width + "%";
-//         elem.innerHTML = width + "%";
-//       }
-//     }
-//   }
-// }
+function roundLose() {
+  clearInterval(timerObj)
+  enemyAnimate(enemyChar)
+  hearts = hearts - 1
+}
 
-function moveBar(time) {
-  var timerElement = document.getElementById("timerBar")
-  var timerText = document.getElementById("timerText")
+function moveTime(time) {
+  let timerElement = document.getElementById("timerElement")
+  let timerBar = document.getElementById("timerBar")
+  let timerText = document.getElementById("timerText")
+  let iter = time - 1
+  timerBar.max = time
+  timerBar.value = 0
+  timerText.innerHTML = time + " seconds remaining"
+
   timerElement.style.display = "block"
-  var time = time
-  let downloadTimer = setInterval(function () {
-    timerElement.value = 10
-    if (time <= 0) {
-      clearInterval(downloadTimer)
-      timerText.innerHTML = "Finished";
-    } else {
-      timerText.innerHTML = time + " seconds remaining";
-    }
-    timerElement.value = 10 - time
-    time -= 1
-  }, 1000)
-  // timerElement.style.display = "none"
 
+  clearInterval(timerObj)
+
+  timerObj = setInterval(function () {
+    timerElement.value = time
+    if (iter <= 0) {
+      roundLose()
+      clearInterval(timerObj)
+    } else {
+      timerText.innerHTML = iter + " seconds remaining"
+    }
+    timerBar.value = time - iter
+    iter -= 1
+  }, 1000)
+
+  // timerElement.style.display = "none"
 }
 
 // function gameOver() {}
@@ -160,6 +150,11 @@ function moveBar(time) {
 /* -------------------------------------------------------------------------- */
 /*                                  Game Loop                                 */
 /* -------------------------------------------------------------------------- */
+
+renderHealth()
+
+
+
 // function startGame() {
 //   while (true) {
 //     renderQuestion()

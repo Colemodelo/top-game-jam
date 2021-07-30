@@ -101,8 +101,6 @@ h2{
 /* --------------------------- Math Questions Box --------------------------- */
 
 #box{
-	color: chartreuse;
-
 	align-items: center;
 	background: rgba(0, 0, 0, 0.5);
 	grid-area: 3 / 5 / 10 / 13;
@@ -131,26 +129,23 @@ h2{
 	font-size: 1.5rem;
 	border: 2px solid black;
 }
-#answer1{
+#answer0{
 	grid-area: 6 / 6 / 6 / 8;
 }
-#answer2{
+#answer1{
 	grid-area: 6 / 10 / 6 / 12;
 }
-#answer3{
+#answer2{
 	grid-area: 8 / 6 / 8 / 8;
 }
-#answer4{
+#answer3{
 	grid-area: 8 / 10 / 8 / 12;
 }
 #promptBtn{
 	grid-area: 11 / 8 / 12 / 10;
 }
 
-/* #timerBar {
-	width: 10%;
-	height: 30px;
-	background-color: #04AA6D;
-	text-align: center;
-	color: white;
-  } */
+
+#timerElement {
+	display: none;
+  }
