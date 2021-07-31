@@ -11,7 +11,10 @@ var mathObj = {
   correctAnswer: 0,
 }
 
+// Initializes empty timer object
 var timerObj = ""
+var playerChar = ""
+var enemyChar = ""
 
 
 /* -------------------------------------------------------------------------- */
@@ -19,13 +22,23 @@ var timerObj = ""
 /* -------------------------------------------------------------------------- */
 
 // Add event listener for buttons
-document.getElementById("promptBtn").addEventListener("click", renderQuestion)
+document.getElementById("startBtn").addEventListener("click", game())
+
+
+/* -------------------------------------------------------------------------- */
+/*                              Grab DOM Elements                             */
+/* -------------------------------------------------------------------------- */
+
+var box = document.getElementById("box")
+var prompt = document.getElementById("prompt")
+var health = document.getElementById("health")
+
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-function askMath(mathObj) {
+function askMath() {
   var a = Math.floor(Math.random() * 10) + 1
   var b = Math.floor(Math.random() * 10) + 1
   var op = ["*", "+", "/", "-"][Math.floor(Math.random() * 4)]
@@ -46,41 +59,48 @@ function askMath(mathObj) {
   mathObj.correctAnswer = answer
 } // Returns nothing, math object is passed by reference and manipulated
 
-// function enemyAnimate(character, animation) {
-//   let character = document.getElementById(character)
-//   switch (animation) {
-//     case attack1:
-//       character.setAttribute("class", "attack")
-//       break
-//     default:
-//       // idle
-//       character.setAttribute("class", "idle")
-//   }
-// }
-// function playerAnimate(character, animation) {
-//   let character = document.getElementById(character)
-//   switch (animation) {
-//     case attack1:
-//       character.setAttribute("class", "attack")
-//       break
-//     default:
-//       // idle
-//       character.setAttribute("class", "idle")
-//   }
-// }
+function enemyAnimate() {
+  let character = document.getElementById(enemyChar)
+  switch (animation) {
+    case attack1:
+      character.setAttribute("class", "attack")
+      break
+    default:
+      // idle
+      character.setAttribute("class", "idle")
+  }
+} // Generates a random enemy animation
+
+function playerAnimate() {
+  let character = document.getElementById(playerChar)
+  switch (animation) {
+    case attack1:
+      character.setAttribute("class", "attack")
+      break
+    default:
+      // idle
+      character.setAttribute("class", "idle")
+  }
+} // Generates a random player animation
 
 function renderHealth() {
+  var health = document.getElementById("health")
+
+  while (health.firstChild) {
+    health.removeChild(health.lastChild);
+  }
   for (let i = 0; i < hearts; i++) {
     let img = document.createElement("img")
     img.src = "assets/heart.png"
-    document.getElementById("health").appendChild(img)
+    health.appendChild(img)
   }
-}
+} // Clears hearts and inserts amount of elements to the value of hearts variable
 
 function renderQuestion() {
-  askMath(mathObj)
-  document.getElementById("box").style.display = "block"
-  document.getElementById("prompt").innerHTML = mathObj.promptString
+  askMath()
+  var box = document.getElementById("box")
+  box.style.display = "block"
+  prompt.innerHTML = mathObj.promptString
   let answer1 = document.getElementById("answer0")
   answer1.innerHTML = mathObj.answers[0]
   let answer2 = document.getElementById("answer1")
@@ -90,7 +110,9 @@ function renderQuestion() {
   let answer4 = document.getElementById("answer3")
   answer4.innerHTML = mathObj.answers[3]
   moveTime(difficultyTime)
-}
+  box.style.display = "none"
+} // Generates random math question using askMath() and inserts into DOM
+
 
 function chooseDifficulty() {
   // ask difficulty
@@ -98,9 +120,13 @@ function chooseDifficulty() {
   document.getElementById("prompt").innerHTML = "Choose your difficulty level"
   // pause execution
   // start execution again
-}
+}  // (NOT FINISHED) Will show difficulty prompt and edit global difficulty variable
 
-// Check answer
+function chooseCharacters(){
+
+} // Inserts character choice prompt elements into DOM and sets global variables
+
+
 function checkAnswer(chosenAnswerDivId) {
   let chosenAnswer = document.getElementById(chosenAnswerDivId).innerHTML
   if (chosenAnswer == mathObj.correctAnswer) {
@@ -110,13 +136,20 @@ function checkAnswer(chosenAnswerDivId) {
     console.log("Wrong!")
     return false
   }
-}
+} // Returns true or false depending on if math question is answered correctly
+
 
 function roundLose() {
   clearInterval(timerObj)
   enemyAnimate(enemyChar)
   hearts = hearts - 1
-}
+} // Clears timer, animate enemy, decrement hearts
+
+function roundWin(){
+  clearInterval(timerObj)
+  playerAnimate()
+} // Clears timer, animate player
+
 
 function moveTime(time) {
   let timerElement = document.getElementById("timerElement")
@@ -128,11 +161,13 @@ function moveTime(time) {
   timerText.innerHTML = time + " seconds remaining"
   timerElement.style.display = "block"
 
+  // Clears timer if function runs while timer is still going
   clearInterval(timerObj)
 
   timerObj = setInterval(function () {
     timerElement.value = time
     if (iter <= 0) {
+      // If time runs out, round lose
       roundLose()
       timerElement.style.display = "none"
     } else {
@@ -141,26 +176,43 @@ function moveTime(time) {
     timerBar.value = time - iter
     iter -= 1
   }, 1000)
+} // Starts timer for value of time variable, inserts timer elements into DOM, calls roundLose() if timer runs out
+
+function gameOver() {
+  clearInterval(timerObj)
 
 }
 
-// function gameOver() {}
+/* -------------------------------------------------------------------------- */
+/*                                  Game Loops                                */
+/* -------------------------------------------------------------------------- */
 
-/* -------------------------------------------------------------------------- */
-/*                                  Game Loop                                 */
-/* -------------------------------------------------------------------------- */
+function newRound(){
+  if (hearts == 0) {
+    return gameOver()
+  }
+  else if (!renderQuestion()){
+    roundLose()
+  } 
+  else {
+    newRound()
+  }
+}
 
 
 function game() {
-    renderHealth()
-    renderQuestion()
+  // Setup initial game state
+  renderHealth()
 
-    if (hearts == 0){
-      gameover()
-    } else {
-      game()
-    }
+  // Intro lore and/or any other creative intro stuff
+
+  // Choose character screen
+
+  // Choose difficulty screen
+
+  // Game loop
+  newRound()
+  
 }
 
-// recursive loop mwuhahaha
-game()
+// Clicking Start Game button starts game loop
