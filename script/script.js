@@ -29,10 +29,6 @@ document.getElementById("startBtn").addEventListener("click", game())
 /*                              Grab DOM Elements                             */
 /* -------------------------------------------------------------------------- */
 
-var box = document.getElementById("box")
-var prompt = document.getElementById("prompt")
-var health = document.getElementById("health")
-
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
