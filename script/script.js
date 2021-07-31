@@ -13,8 +13,8 @@ var mathObj = {
 
 // Initializes empty timer object
 var timerObj = ""
-var playerChar = ""
-var enemyChar = ""
+var playerChar = "buck"
+var enemyChar = "slime"
 
 
 /* -------------------------------------------------------------------------- */
@@ -29,10 +29,15 @@ document.getElementById("startBtn").addEventListener("click", game())
 /*                              Grab DOM Elements                             */
 /* -------------------------------------------------------------------------- */
 
+// DOM element variables not global? Will select within functions...
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
+
+// Sorted by types
+
+/* ---------------------------------- Core ---------------------------------- */
 
 function askMath() {
   var a = Math.floor(Math.random() * 10) + 1
@@ -55,43 +60,6 @@ function askMath() {
   mathObj.correctAnswer = answer
 } // Returns nothing, math object is passed by reference and manipulated
 
-function enemyAnimate() {
-  let character = document.getElementById(enemyChar)
-  switch (animation) {
-    case attack1:
-      character.setAttribute("class", "attack")
-      break
-    default:
-      // idle
-      character.setAttribute("class", "idle")
-  }
-} // Generates a random enemy animation
-
-function playerAnimate() {
-  let character = document.getElementById(playerChar)
-  switch (animation) {
-    case attack1:
-      character.setAttribute("class", "attack")
-      break
-    default:
-      // idle
-      character.setAttribute("class", "idle")
-  }
-} // Generates a random player animation
-
-function renderHealth() {
-  var health = document.getElementById("health")
-
-  while (health.firstChild) {
-    health.removeChild(health.lastChild);
-  }
-  for (let i = 0; i < hearts; i++) {
-    let img = document.createElement("img")
-    img.src = "assets/heart.png"
-    health.appendChild(img)
-  }
-} // Clears hearts and inserts amount of elements to the value of hearts variable
-
 function renderQuestion() {
   askMath()
   var box = document.getElementById("box")
@@ -108,43 +76,6 @@ function renderQuestion() {
   moveTime(difficultyTime)
   box.style.display = "none"
 } // Generates random math question using askMath() and inserts into DOM
-
-
-function chooseDifficulty() {
-  // ask difficulty
-  document.getElementById("box").style.display = "block"
-  document.getElementById("prompt").innerHTML = "Choose your difficulty level"
-  // pause execution
-  // start execution again
-}  // (NOT FINISHED) Will show difficulty prompt and edit global difficulty variable
-
-function chooseCharacters(){
-
-} // Inserts character choice prompt elements into DOM and sets global variables
-
-
-function checkAnswer(chosenAnswerDivId) {
-  let chosenAnswer = document.getElementById(chosenAnswerDivId).innerHTML
-  if (chosenAnswer == mathObj.correctAnswer) {
-    console.log("Correct!")
-    return true
-  } else {
-    console.log("Wrong!")
-    return false
-  }
-} // Returns true or false depending on if math question is answered correctly
-
-
-function roundLose() {
-  clearInterval(timerObj)
-  enemyAnimate(enemyChar)
-  hearts = hearts - 1
-} // Clears timer, animate enemy, decrement hearts
-
-function roundWin(){
-  clearInterval(timerObj)
-  playerAnimate()
-} // Clears timer, animate player
 
 
 function moveTime(time) {
@@ -176,8 +107,92 @@ function moveTime(time) {
 
 function gameOver() {
   clearInterval(timerObj)
-
 }
+
+/* ------------------------------- Animations ------------------------------- */
+
+function enemyAnimate() {
+  let character = document.getElementById(enemyChar)
+  let animationNum = Math.floor(Math.random() * 4)
+  switch (animationNum) {
+    case 1:
+      character.setAttribute("class", "attack")
+      break
+    default:
+      // idle
+      character.setAttribute("class", "idle")
+  }
+} // Generates a random enemy animation
+
+
+function playerAnimate() {
+  let character = document.getElementById(playerChar)
+  let animationNum = Math.floor(Math.random() * 4)
+  switch (animationNum) {
+    case 1:
+      character.setAttribute("class", "attack")
+      break
+    default:
+      // idle
+      character.setAttribute("class", "idle")
+  }
+} // Generates a random player animation
+
+
+/* ---------------------------------- Setup --------------------------------- */
+
+function renderHealth() {
+  var health = document.getElementById("health")
+
+  while (health.firstChild) {
+    health.removeChild(health.lastChild);
+  }
+  for (let i = 0; i < hearts; i++) {
+    let img = document.createElement("img")
+    img.src = "assets/heart.png"
+    health.appendChild(img)
+  }
+} // Clears hearts and inserts amount of elements to the value of hearts variable
+
+
+function chooseDifficulty() {
+  // ask difficulty
+  document.getElementById("box").style.display = "block"
+  document.getElementById("prompt").innerHTML = "Choose your difficulty level"
+  // pause execution
+  // start execution again
+}  // (NOT FINISHED) Will show difficulty prompt and edit global difficulty variable
+
+function chooseCharacters(){
+} // Inserts character choice prompt elements into DOM and sets global variables
+
+
+/* --------------------- Checkers (Not a technical term) -------------------- */
+
+function checkAnswer(chosenAnswerDivId) {
+  let chosenAnswer = document.getElementById(chosenAnswerDivId).innerHTML
+  if (chosenAnswer == mathObj.correctAnswer) {
+    console.log("Correct!")
+    return true
+  } else {
+    console.log("Wrong!")
+    return false
+  }
+} // Returns true or false depending on if math question is answered correctly
+
+
+function roundLose() {
+  clearInterval(timerObj)
+  enemyAnimate(enemyChar)
+  hearts = hearts - 1
+} // Clears timer, animate enemy, decrement hearts
+
+
+function roundWin(){
+  clearInterval(timerObj)
+  playerAnimate()
+} // Clears timer, animate player
+
 
 /* -------------------------------------------------------------------------- */
 /*                                  Game Loops                                */
