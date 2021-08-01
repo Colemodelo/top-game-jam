@@ -278,8 +278,11 @@ function roundWin(){
 /* -------------------------------------------------------------------------- */
 
 function newRound(){
+  var box = document.getElementById("box")
+  box.innerHTML = "Round " + round + ": FIGHT!"
+  setTimeout(function(){ renderQuestion(); }, 3000);
 
-  renderQuestion()
+  
 
   
 }
@@ -296,6 +299,7 @@ function game() {
   document.getElementById("startBtn").style.display = "none"
   document.getElementById("playerChar").style.display = "block"
   document.getElementById("enemyChar").style.display = "block"
+
   playerAnimate()
   enemyAnimate()
 

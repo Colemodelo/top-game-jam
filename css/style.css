@@ -97,6 +97,10 @@ h2{
 	height: 25px;
 }
 
+#messageBox {
+	display: none;
+}
+
 /* --------------------------- Math Questions Box --------------------------- */
 
 #box{
