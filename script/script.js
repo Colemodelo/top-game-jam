@@ -278,8 +278,8 @@ function roundWin(){
 /* -------------------------------------------------------------------------- */
 
 function newRound(){
-  var box = document.getElementById("box")
-  box.innerHTML = "Round " + round + ": FIGHT!"
+  var messageBox = document.getElementById("messageBox")
+  messageBox.innerHTML = "Round " + round + ": FIGHT!"
   setTimeout(function(){ renderQuestion(); }, 3000);
 
   
