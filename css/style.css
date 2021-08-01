@@ -147,7 +147,7 @@ h2{
 	grid-area: 11 / 8 / 12 / 10;
 }
 
-
 #timerElement {
 	display: none;
-  }
+	grid-area: 1 / 12 / 2 / 15;
+}
