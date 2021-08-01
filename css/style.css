@@ -35,6 +35,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	font-family: 'VT323', monospace;
 }
 ol, ul {
 	list-style: none;
@@ -105,6 +106,7 @@ h2{
 	background: rgba(0, 0, 0, 0.5);
 	grid-area: 3 / 5 / 10 / 13;
 	text-align: center;
+	display: none;
 }
 
 #prompt{
