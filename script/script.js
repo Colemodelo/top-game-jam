@@ -164,7 +164,6 @@ function playerAnimate() {
 function renderHealth() {
   let playerHealth = document.getElementById("playerHealth")
   let enemyHealth = document.getElementById("enemyHealth")
-
   // Remove all playerHearts
   while (playerHealth.firstChild) {
     playerHealth.removeChild(playerHealth.lastChild);
@@ -188,16 +187,16 @@ function renderHealth() {
 } // Clears playerHearts and inserts amount of elements to the value of playerHearts variable
 
 
-function chooseDifficulty() {
-  // ask difficulty
-  document.getElementById("box").style.display = "block"
-  document.getElementById("prompt").innerHTML = "Choose your difficulty level"
-  // pause execution
-  // start execution again
-}  // (NOT FINISHED) Will show difficulty prompt and edit global difficulty variable
+// function chooseDifficulty() {
+//   // ask difficulty
+//   document.getElementById("box").style.display = "block"
+//   document.getElementById("prompt").innerHTML = "Choose your difficulty level"
+//   // pause execution
+//   // start execution again
+// }  // (NOT FINISHED) Will show difficulty prompt and edit global difficulty variable
 
-function chooseCharacters(){
-} // Inserts character choice prompt elements into DOM and sets global variables
+// function chooseCharacters(){
+// } // Inserts character choice prompt elements into DOM and sets global variables
 
 
 /* --------------------- Checkers (Not a technical term) -------------------- */
