@@ -5,6 +5,7 @@ var playerHearts = 5
 var enemyHearts = 5
 var turnCounter = 0
 var difficultyTime = 10
+var round = 0
 
 var mathObj = {
   promptString: "",
@@ -14,8 +15,23 @@ var mathObj = {
 
 // Initializes empty timer object
 var timerObj = ""
-var playerChar = "buck"
-var enemyChar = "blob"
+
+function resetGlobals(){
+playerHearts = 5
+enemyHearts = 5
+turnCounter = 0
+difficultyTime = 1
+round = 0
+
+mathObj = {
+  promptString: "",
+  answers: [],
+  correctAnswer: 0,
+}
+
+// Initializes empty timer object
+timerObj = ""
+}
 
 
 /* -------------------------------------------------------------------------- */
@@ -113,14 +129,13 @@ function gameOver(winLose) {
   let startBtn = document.getElementById("startBtn")
   box.style.display = "block"
   startBtn.style.display = "block"
-  box.innerHTML = "Game Over \n Play Again?"
   
   switch (winLose) {
     case "win":
-      box.innerHTML = "You Win the game!!"
+      // box.innerHTML = "You Win the game!!"
       break
     case "lose":
-      box.innerHTML = "You have been defeated!"
+      // box.innerHTML = "You have been defeated!"
       break
   }
 
@@ -132,7 +147,7 @@ function gameOver(winLose) {
 /* ------------------------------- Animations ------------------------------- */
 
 function enemyAnimate() {
-  let character = document.getElementById(enemyChar)
+  let character = document.getElementById("enemyChar")
   let animationNum = Math.floor(Math.random() * 4)
   switch (animationNum) {
     case 1:
@@ -140,13 +155,14 @@ function enemyAnimate() {
       break
     default:
       // idle
-      character.setAttribute("class", "idle")
+      character.setAttribute("class", "blob-idle")
   }
 } // Generates a random enemy animation
 
 
 function playerAnimate() {
-  let character = document.getElementById(playerChar)
+  let character = document.getElementById("playerChar")
+  character.removeAttribute('class')
   let animationNum = Math.floor(Math.random() * 4)
   switch (animationNum) {
     case 1:
@@ -154,7 +170,8 @@ function playerAnimate() {
       break
     default:
       // idle
-      character.setAttribute("class", "idle")
+      character.setAttribute("src", "assets/buck/buck-idle.gif")
+      character.setAttribute("class", "buck-idle")
   }
 } // Generates a random player animation
 
@@ -219,7 +236,7 @@ function roundLose() {
   document.getElementById("box").style.display = "none"
 
   clearInterval(timerObj)
-  enemyAnimate(enemyChar)
+  enemyAnimate(1)
   playerHearts = playerHearts - 1
   renderHealth()
 
@@ -245,30 +262,40 @@ function roundWin(){
   }
 } // Clears timer, animate player
 
+/* -------------------------------------------------------------------------- */
+/*                            Show / Hide Elements                            */
+/* -------------------------------------------------------------------------- */
+
 
 /* -------------------------------------------------------------------------- */
 /*                                  Game Loops                                */
 /* -------------------------------------------------------------------------- */
 
 function newRound(){
-
- renderQuestion()
+  round = round + 1
+  difficultyTime = difficultyTime - 1
+    
+  renderQuestion()
 
   
 }
 
 
 function game() {
+  // Resets global variables on new game
+  resetGlobals()
+
   // Setup initial game state
-  hearts = 5
   renderHealth()
+
+  // Hide start btn, show 
   document.getElementById("startBtn").style.display = "none"
+  document.getElementById("playerChar").style.display = "block"
+  document.getElementById("enemyChar").style.display = "block"
+  playerAnimate()
+  enemyAnimate()
 
-  // Intro lore and/or any other creative intro stuff
-
-  // Choose character screen
-
-  // Choose difficulty screen
+ 
 
   // Game loop
   newRound()

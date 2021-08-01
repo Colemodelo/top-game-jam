@@ -56,6 +56,10 @@ h2{
 	font-size: 2rem;
 }
 
+.character{
+	border: 15px;
+}
+
 #container {
     display: flex;
     justify-content: center;
@@ -89,12 +93,12 @@ h2{
 
 /* ------------------------------- Characters ------------------------------- */
 
-#buck{
+.buck{
 	height: 165px;
 	grid-area: 17 / 2 /  11 / 5;
 }
 
-#buck-idle{
+.buck-idle{
 	height: 175px;
 	grid-area: 17 / 2 /  11 / 5;
 }
@@ -143,7 +147,7 @@ h2{
 #answer3{
 	grid-area: 8 / 10 / 8 / 12;
 }
-#promptBtn{
+#startBtn{
 	grid-area: 11 / 8 / 12 / 10;
 }
 
