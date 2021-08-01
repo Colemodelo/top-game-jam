@@ -157,8 +157,8 @@ function enemyAnimate(animation) {
       break
     case "fullAttackAnimation":
       enemyAnimate("move")
-      setTimeout(function(){ enemyAnimate("attack"); }, 800);
-      setTimeout(function(){ enemyAnimate("move"); }, 2000);
+      setTimeout(function(){ enemyAnimate("attack"); playerAnimate("damage") }, 800);
+      setTimeout(function(){ enemyAnimate("move"); playerAnimate()}, 2000);
       setTimeout(function(){ enemyAnimate(); }, 2800);
       break
     default:
@@ -171,7 +171,17 @@ function enemyAnimate(animation) {
 function playerAnimate(animation) {
   let character = document.getElementById("playerChar")
   switch (animation) {
-    case 1:
+    case "attack":
+      character.setAttribute("class", "attack")
+      break
+    case "damage":
+      // character.setAttribute("class", "attack")
+      character.setAttribute("src", "assets/buck/buck-damaged.gif")
+      break
+    case "running":
+      character.setAttribute("class", "attack")
+      break
+    case "death":
       character.setAttribute("class", "attack")
       break
     default:
