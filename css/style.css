@@ -74,6 +74,7 @@ h2{
     height: 540px;
     width: 960px;
     background-image: url("../assets/images/pxArt.png");
+	background-repeat: no-repeat;
     background-size: 100%;
 }
 
@@ -81,26 +82,19 @@ h2{
 /*                                 Components                                 */
 /* -------------------------------------------------------------------------- */
 
-#health {
+#playerHealth {
 	margin-left: 5px;
 	margin-top: 5px;
 	grid-area: 1 / 1 /  1 /  5;
 }
+#enemyHealth{
+	grid-area: 1 / 14 / 2 / 17;
+	margin-left: 10px;
+	margin-top: 5px;
+}
 
 .heart{
 	height: 25px;
-}
-
-/* ------------------------------- Characters ------------------------------- */
-
-.buck{
-	height: 165px;
-	grid-area: 17 / 2 /  11 / 5;
-}
-
-.buck-idle{
-	height: 175px;
-	grid-area: 17 / 2 /  11 / 5;
 }
 
 /* --------------------------- Math Questions Box --------------------------- */
@@ -130,7 +124,7 @@ h2{
 .choice {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: center; 
 	background: chartreuse;
 	font-size: 1.5rem;
 	border: 2px solid black;
@@ -148,10 +142,10 @@ h2{
 	grid-area: 8 / 10 / 8 / 12;
 }
 #startBtn{
-	grid-area: 11 / 8 / 12 / 10;
+	grid-area: 7 / 8 / 8 / 10;
 }
-
 #timerElement {
 	display: none;
-	grid-area: 1 / 12 / 2 / 15;
+	text-align: center;
+	grid-area: 1 / 7 / 5 / 11;
 }

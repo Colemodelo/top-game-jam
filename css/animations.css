@@ -1,3 +1,15 @@
+#playerChar{
+    border: none;
+}
+#enemyChar{
+    overflow: hidden;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                    Blob                                    */
+/* -------------------------------------------------------------------------- */
+
 /* .blob {
     height: 800px;
     width: 80px;
@@ -14,34 +26,34 @@
 }
 
 
-/* #blob-death {
+.blob-death {
     height: 640px;
     width: 80px;
-    background: url("../assets/blob/blob death.png") 0 0 no-repeat;
+    background: url("../assets/blob/blob_death.png") 0 0 no-repeat;
     animation: animate 0.8s steps(8) infinite;
     transform: scale(4);
     grid-area: 5 / 20 / 15 / 15;
-} */
+}
 
 
-/* #blob-attack {
+.blob-attack {
     height: 80px;
     width: 80px;
     background: url("../assets/blob/blob_attack.png") 0 0 no-repeat;
     animation: attack 0.8s steps(10) infinite;
     transform: scale(4);
-    grid-area: 12 / 17 / 17 / 12;
-} */
+    grid-area: 14 / 4 / 17 / 17;
+}
 
 
-/* .blob-move {
+.blob-move {
     height: 640px;
     width: 80px;
-    background: url("../assets/blob/blob move.png") 0 0 no-repeat;
+    background: url("../assets/blob/blob_move.png") 0 0 no-repeat;
     animation: animate 0.8s steps(8) infinite;
     transform: scale(4);
-    grid-area: 10 / 25 / 15 / 12;
-} */
+    grid-area: 5 / 25 / 15 / 12;
+}
 
 @keyframes animate {
     from {
@@ -59,4 +71,20 @@
     to {
         background-position: -800px;
     }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    Buck                                    */
+/* -------------------------------------------------------------------------- */
+
+.buck{
+	height: 165px;
+	grid-area: 17 / 2 /  11 / 5;
+}
+
+.buck-idle{
+	height: 175px;
+	grid-area: 17 / 2 /  11 / 5;
+    /* background: url("../assets/buck/buck-idle.gif") 0 0 no-repeat; */
+
 }

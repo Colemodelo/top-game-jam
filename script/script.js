@@ -16,11 +16,16 @@ var mathObj = {
 // Initializes empty timer object
 var timerObj = ""
 
+
+playerAnimations = ["idle"]
+enemyAnimations = ["blob-idle", "blob-move", "blob-attack", "blob-death"]
+
+
 function resetGlobals(){
 playerHearts = 5
 enemyHearts = 5
 turnCounter = 0
-difficultyTime = 1
+difficultyTime = 10
 round = 0
 
 mathObj = {
@@ -42,11 +47,6 @@ timerObj = ""
 document.getElementById("startBtn").addEventListener("click", game)
 
 
-/* -------------------------------------------------------------------------- */
-/*                              Grab DOM Elements                             */
-/* -------------------------------------------------------------------------- */
-
-// DOM element variables not global? Will select within functions...
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -132,10 +132,10 @@ function gameOver(winLose) {
   
   switch (winLose) {
     case "win":
-      // box.innerHTML = "You Win the game!!"
+      box.innerHTML = "You Win the game!!"
       break
     case "lose":
-      // box.innerHTML = "You have been defeated!"
+      box.innerHTML = "You have been defeated!"
       break
   }
 
@@ -146,12 +146,20 @@ function gameOver(winLose) {
 
 /* ------------------------------- Animations ------------------------------- */
 
-function enemyAnimate() {
+function enemyAnimate(animation) {
   let character = document.getElementById("enemyChar")
-  let animationNum = Math.floor(Math.random() * 4)
-  switch (animationNum) {
-    case 1:
-      character.setAttribute("class", "attack")
+  switch (animation) {
+    case "attack":
+      character.setAttribute("class", "blob-attack")
+      break
+    case "move":
+      character.setAttribute("class", "blob-move")
+      break
+    case "fullAttackAnimation":
+      enemyAnimate("move")
+      setTimeout(function(){ enemyAnimate("attack"); }, 800);
+      setTimeout(function(){ enemyAnimate("move"); }, 2000);
+      setTimeout(function(){ enemyAnimate(); }, 2800);
       break
     default:
       // idle
@@ -160,11 +168,9 @@ function enemyAnimate() {
 } // Generates a random enemy animation
 
 
-function playerAnimate() {
+function playerAnimate(animation) {
   let character = document.getElementById("playerChar")
-  character.removeAttribute('class')
-  let animationNum = Math.floor(Math.random() * 4)
-  switch (animationNum) {
+  switch (animation) {
     case 1:
       character.setAttribute("class", "attack")
       break
@@ -236,12 +242,12 @@ function roundLose() {
   document.getElementById("box").style.display = "none"
 
   clearInterval(timerObj)
-  enemyAnimate(1)
+  enemyAnimate("fullAttackAnimation")
   playerHearts = playerHearts - 1
   renderHealth()
 
   // Check if playerHearts depleted, and if not start new round
-  if (playerHearts == 0) {
+  if (playerHearts <= 0) {
     gameOver("lose")
   } else {
     newRound()
@@ -255,7 +261,7 @@ function roundWin(){
   enemyHearts = enemyHearts - 1
   renderHealth()
 
-  if (enemyHearts == 0) {
+  if (enemyHearts <= 0) {
     gameOver("win")
   } else {
     newRound()
@@ -272,9 +278,7 @@ function roundWin(){
 /* -------------------------------------------------------------------------- */
 
 function newRound(){
-  round = round + 1
-  difficultyTime = difficultyTime - 1
-    
+
   renderQuestion()
 
   
@@ -288,14 +292,13 @@ function game() {
   // Setup initial game state
   renderHealth()
 
-  // Hide start btn, show 
+  // Hide start btn, show characters
   document.getElementById("startBtn").style.display = "none"
   document.getElementById("playerChar").style.display = "block"
   document.getElementById("enemyChar").style.display = "block"
   playerAnimate()
   enemyAnimate()
 
- 
 
   // Game loop
   newRound()
