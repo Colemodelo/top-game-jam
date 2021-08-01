@@ -1,7 +1,8 @@
 /* -------------------------------------------------------------------------- */
 /*                              Global variables                              */
 /* -------------------------------------------------------------------------- */
-var hearts = 5
+var playerHearts = 5
+var enemyHearts = 5
 var turnCounter = 0
 var difficultyTime = 10
 
@@ -66,6 +67,7 @@ function renderQuestion() {
   var box = document.getElementById("box")
   var prompt = document.getElementById("prompt")
   box.style.display = "block"
+  prompt.style.display = "block"
   prompt.innerHTML = mathObj.promptString
   let answer1 = document.getElementById("answer0")
   answer1.innerHTML = mathObj.answers[0]
@@ -105,8 +107,24 @@ function moveTime(time) {
   }, 1000)
 } // Starts timer for value of time variable, inserts timer elements into DOM, calls roundLose() if timer runs out
 
-function gameOver() {
+function gameOver(winLose) {
   clearInterval(timerObj)
+  let box = document.getElementById("box")
+  let startBtn = document.getElementById("startBtn")
+  box.style.display = "block"
+  startBtn.style.display = "block"
+  box.innerHTML = "Game Over \n Play Again?"
+  
+  switch (winLose) {
+    case "win":
+      box.innerHTML = "You Win the game!!"
+      break
+    case "lose":
+      box.innerHTML = "You have been defeated!"
+      break
+  }
+
+
   // Terminate script
   // throw new Error();  
 }
@@ -144,17 +162,30 @@ function playerAnimate() {
 /* ---------------------------------- Setup --------------------------------- */
 
 function renderHealth() {
-  var health = document.getElementById("health")
+  let playerHealth = document.getElementById("playerHealth")
+  let enemyHealth = document.getElementById("enemyHealth")
 
-  while (health.firstChild) {
-    health.removeChild(health.lastChild);
+  // Remove all playerHearts
+  while (playerHealth.firstChild) {
+    playerHealth.removeChild(playerHealth.lastChild);
   }
-  for (let i = 0; i < hearts; i++) {
+  // Render PlayerHearts
+  for (let i = 0; i < playerHearts; i++) {
     let img = document.createElement("img")
     img.src = "assets/heart.png"
-    health.appendChild(img)
+    playerHealth.appendChild(img)
   }
-} // Clears hearts and inserts amount of elements to the value of hearts variable
+  // Remove all enemyHearts
+  while (enemyHealth.firstChild) {
+    enemyHealth.removeChild(enemyHealth.lastChild);
+  }
+  // Render enemyHearts
+  for (let i = 0; i < enemyHearts; i++) {
+    let img = document.createElement("img")
+    img.src = "assets/heart.png"
+    enemyHealth.appendChild(img)
+  }
+} // Clears playerHearts and inserts amount of elements to the value of playerHearts variable
 
 
 function chooseDifficulty() {
@@ -174,11 +205,9 @@ function chooseCharacters(){
 function checkAnswer(chosenAnswerDivId) {
   let chosenAnswer = document.getElementById(chosenAnswerDivId).innerHTML
   if (chosenAnswer == mathObj.correctAnswer) {
-    console.log("Correct!")
-    return true
+    roundWin()
   } else {
-    console.log("Wrong!")
-    return false
+    roundLose()
   }
 } // Returns true or false depending on if math question is answered correctly
 
@@ -191,21 +220,29 @@ function roundLose() {
 
   clearInterval(timerObj)
   enemyAnimate(enemyChar)
-  hearts = hearts - 1
+  playerHearts = playerHearts - 1
   renderHealth()
 
-  // Check if hearts depleted, and if not start new round
-  if (hearts == 0) {
-    gameOver()
+  // Check if playerHearts depleted, and if not start new round
+  if (playerHearts == 0) {
+    gameOver("lose")
   } else {
     newRound()
   }
-} // Clears timer, animate enemy, decrement hearts
+} // Clears timer, animate enemy, decrement playerHearts
  
 
 function roundWin(){
   clearInterval(timerObj)
   playerAnimate()
+  enemyHearts = enemyHearts - 1
+  renderHealth()
+
+  if (enemyHearts == 0) {
+    gameOver("win")
+  } else {
+    newRound()
+  }
 } // Clears timer, animate player
 
 
@@ -223,6 +260,7 @@ function newRound(){
 
 function game() {
   // Setup initial game state
+  hearts = 5
   renderHealth()
   document.getElementById("startBtn").style.display = "none"
 
