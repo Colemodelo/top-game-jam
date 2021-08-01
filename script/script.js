@@ -3,7 +3,7 @@
 /* -------------------------------------------------------------------------- */
 var hearts = 5
 var turnCounter = 0
-var difficultyTime = 5
+var difficultyTime = 10
 
 var mathObj = {
   promptString: "",
@@ -14,7 +14,7 @@ var mathObj = {
 // Initializes empty timer object
 var timerObj = ""
 var playerChar = "buck"
-var enemyChar = "slime"
+var enemyChar = "blob"
 
 
 /* -------------------------------------------------------------------------- */
@@ -22,7 +22,7 @@ var enemyChar = "slime"
 /* -------------------------------------------------------------------------- */
 
 // Add event listener for buttons
-document.getElementById("startBtn").addEventListener("click", game())
+document.getElementById("startBtn").addEventListener("click", game)
 
 
 /* -------------------------------------------------------------------------- */
@@ -60,9 +60,11 @@ function askMath() {
   mathObj.correctAnswer = answer
 } // Returns nothing, math object is passed by reference and manipulated
 
+
 function renderQuestion() {
   askMath()
   var box = document.getElementById("box")
+  var prompt = document.getElementById("prompt")
   box.style.display = "block"
   prompt.innerHTML = mathObj.promptString
   let answer1 = document.getElementById("answer0")
@@ -74,7 +76,6 @@ function renderQuestion() {
   let answer4 = document.getElementById("answer3")
   answer4.innerHTML = mathObj.answers[3]
   moveTime(difficultyTime)
-  box.style.display = "none"
 } // Generates random math question using askMath() and inserts into DOM
 
 
@@ -96,7 +97,6 @@ function moveTime(time) {
     if (iter <= 0) {
       // If time runs out, round lose
       roundLose()
-      timerElement.style.display = "none"
     } else {
       timerText.innerHTML = iter + " seconds remaining"
     }
@@ -107,6 +107,8 @@ function moveTime(time) {
 
 function gameOver() {
   clearInterval(timerObj)
+  // Terminate script
+  // throw new Error();  
 }
 
 /* ------------------------------- Animations ------------------------------- */
@@ -181,12 +183,25 @@ function checkAnswer(chosenAnswerDivId) {
 } // Returns true or false depending on if math question is answered correctly
 
 
+/* --------------------------------- Rounds --------------------------------- */
+
 function roundLose() {
+  document.getElementById("timerElement").style.display = "none"
+  document.getElementById("box").style.display = "none"
+
   clearInterval(timerObj)
   enemyAnimate(enemyChar)
   hearts = hearts - 1
-} // Clears timer, animate enemy, decrement hearts
+  renderHealth()
 
+  // Check if hearts depleted, and if not start new round
+  if (hearts == 0) {
+    gameOver()
+  } else {
+    newRound()
+  }
+} // Clears timer, animate enemy, decrement hearts
+ 
 
 function roundWin(){
   clearInterval(timerObj)
@@ -199,21 +214,17 @@ function roundWin(){
 /* -------------------------------------------------------------------------- */
 
 function newRound(){
-  if (hearts == 0) {
-    return gameOver()
-  }
-  else if (!renderQuestion()){
-    roundLose()
-  } 
-  else {
-    newRound()
-  }
+
+ renderQuestion()
+
+  
 }
 
 
 function game() {
   // Setup initial game state
   renderHealth()
+  document.getElementById("startBtn").style.display = "none"
 
   // Intro lore and/or any other creative intro stuff
 
