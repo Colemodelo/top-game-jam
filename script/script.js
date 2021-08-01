@@ -22,7 +22,7 @@ var enemyChar = "slime"
 /* -------------------------------------------------------------------------- */
 
 // Add event listener for buttons
-document.getElementById("startBtn").addEventListener("click", game())
+document.getElementById("promptBtn").addEventListener("click", game)
 
 
 /* -------------------------------------------------------------------------- */
@@ -214,7 +214,6 @@ function newRound(){
 function game() {
   // Setup initial game state
   renderHealth()
-
   // Intro lore and/or any other creative intro stuff
 
   // Choose character screen
