@@ -280,7 +280,8 @@ function roundWin(){
 function newRound(){
   var messageBox = document.getElementById("messageBox")
   messageBox.innerHTML = "Round " + round + ": FIGHT!"
-  setTimeout(function(){ renderQuestion(); }, 3000);
+  renderQuestion();
+  // setTimeout(function(){ renderQuestion(); }, 3000);
 
   
 
