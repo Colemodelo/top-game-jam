@@ -3,6 +3,9 @@
     width: 80px;
 } */
 
+
+/* Blob Images */
+
 #blob-idle {
     height: 175px;
     width: 80px;
@@ -42,6 +45,58 @@
     grid-area: 10 / 25 / 15 / 12;
 } */
 
+
+/* Snail Images */
+
+
+/* #snail-hurt {
+    height: 238px;
+    width: 32px;
+    background: url("../assets/snail/snail_hurt.png") 0 0 no-repeat;
+    animation: snailHurt 1.0s steps(7) infinite;
+    transform: scale(4);
+    grid-area: 10 / 25 / 15 / 12;
+} */
+
+
+/* #snail-idle {
+    height: 204px;
+    width: 32px;
+    background: url("../assets/snail/snail_idle.png") 0 0 no-repeat;
+    animation: snailIdle 1.0s steps(6) infinite;
+    transform: scale(4);
+    grid-area: 10 / 25 / 15 / 12;
+} */
+
+
+/* Buck Images */
+
+
+/* #buck-attack {
+    height: 23px;
+    width: 121px;
+    background: url("../assets/buck/attacks.png") 0 0 no-repeat;
+    animation: buck-attack 0.8s steps(12) infinite;
+    transform: scale(4);
+    grid-area: 10 / 25 / 15 / 12;
+} */
+
+
+/* Buck Animations  */
+
+
+/* @keyframes buck-attack {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -276px;
+    }
+} */
+
+
+/* Blob Animations  */
+
 @keyframes animate {
     from {
         background-position: 0;
@@ -57,5 +112,26 @@
     }
     to {
         background-position: -800px;
+    }
+}
+
+
+/* Snail Animations  */
+
+@keyframes snailHurt {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -238px;
+    }
+}
+
+@keyframes snailIdle {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -204px;
     }
 }
