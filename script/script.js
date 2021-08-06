@@ -187,6 +187,8 @@ function playerAnimate() {
 function renderHealth() {
   let playerHealth = document.getElementById("playerHealth")
   let enemyHealth = document.getElementById("enemyHealth")
+  let buckName = document.getElementById("buckName")
+  let enemyName = document.getElementById("enemyName")
   // Remove all playerHearts
   while (playerHealth.firstChild) {
     playerHealth.removeChild(playerHealth.lastChild);
@@ -196,6 +198,9 @@ function renderHealth() {
     let img = document.createElement("img")
     img.src = "assets/heart.png"
     playerHealth.appendChild(img)
+    
+    // Render "Buck's Health:" text
+    buckName.innerHTML = "Buck's Health:"
   }
   // Remove all enemyHearts
   while (enemyHealth.firstChild) {
@@ -206,6 +211,9 @@ function renderHealth() {
     let img = document.createElement("img")
     img.src = "assets/heart.png"
     enemyHealth.appendChild(img)
+
+    // Render "Enemies Health:" text
+    enemyName.innerHTML = "Enemies"
   }
 } // Clears playerHearts and inserts amount of elements to the value of playerHearts variable
 
