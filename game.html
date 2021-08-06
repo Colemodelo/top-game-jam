@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Math Attack</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  </head>
+  <body onload="game()">
+    <div id="container">
+      <main id="game">
+        <h3 id="buckName" class="health"></h3>
+        <aside id="playerHealth" class="health"></aside>
+
+        <h3 id="enemyName" class="health"></h3>
+        <aside id="enemyHealth" class="health"></aside>
+        <!-- <img id="buck-idle" src="assets/buck/buck-idle.gif" /> -->
+        <img id="playerChar" class="character"/>
+        <div id="enemyChar" class="character"></div>
+        
+
+        <div id="timerElement">
+          <progress id="timerBar"></progress>
+          <div id="timerText"></div>
+        </div>
+
+        <div id="messageBox"></div>
+
+        <!-- <button id="startBtn">Start Game!</button> -->
+        <div id="box"></div>
+        <div id="prompt"></div>
+        <div class="choice" id="answer0" onclick="checkAnswer('answer0')"></div>
+        <div class="choice" id="answer1" onclick="checkAnswer('answer1')"></div>
+        <div class="choice" id="answer2" onclick="checkAnswer('answer2')"></div>
+        <div class="choice" id="answer3" onclick="checkAnswer('answer3')"></div>
+       
+
+        <!-- <div id="blob-attack"></div>
+                <div id="blob-move"></div> -->
+      </main>
+    </div>
+  </body>
+  <script src="script/script.js" async defer></script>
+</html>
