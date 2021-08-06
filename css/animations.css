@@ -88,3 +88,123 @@
     /* background: url("../assets/buck/buck-idle.gif") 0 0 no-repeat; */
 
 }
+/* 
+.idle {
+    margin-top: 10vh;
+    background-color: var(--text-accent);
+    background: url(../images/idle.png);
+    height: 23px;
+    width: 121px;
+    transform: scale(3);
+    animation: stand 1s steps(5) infinite;
+}
+
+@keyframes stand {
+    100%{
+        background-position: 0px 0px;
+    }
+
+    0%{
+        background-position: 0px 115px;
+    }
+}
+
+.chick {
+    margin-top: 5vh;
+    background-color: transparent;
+    background: url(../images/Hit\ \(32x34\).png);
+    height: 34px;
+    width: 31px;
+    transform: scale(3);
+    animation: hit .5s steps(5) infinite;
+}
+
+@keyframes hit {
+    100%{
+        background-position: 160px 0px;
+    }
+
+    0%{
+        background-position: 0px 0px;
+    }
+}
+
+.bhit {
+    margin-top: 5vh;
+    background-color: #fff;
+    background: url(../images/damaged.png);
+    width: 121px;
+    height: 23px;
+    transform: scale(3);
+    animation: bdam 1s steps(2) infinite;
+}
+
+@keyframes bdam {
+    100%{
+        background-position: 0px 46px;
+    }
+
+    0%{
+        background-position: 0px 0px;
+    }
+}
+
+.bat {
+    margin-top: 5vh;
+    background-color: #fff;
+    background: url(../images/attacks.png);
+    width: 121px;
+    height: 23px;
+    transform: scale(3);
+    animation: punch 1s steps(12) infinite;
+}
+
+@keyframes punch {
+    100%{
+        background-position: 0px 276px;
+    }
+
+    0%{
+        background-position: 0px 0px;
+    }
+}
+
+.douken {
+    margin-top: 5vh;
+    background-color: #fff;
+    background: url(../images/hadouken.png);
+    width: 121px;
+    height: 23px;
+    transform: scale(3);
+    animation: kame 1s steps(14) infinite;
+}
+
+@keyframes kame {
+    100%{
+        background-position: 0px 0px;
+    }
+
+    0%{
+        background-position: 0px 322px;
+    }
+}
+
+.roll {
+    margin-top: 5vh;
+    background-color: #fff;
+    background: url(../images/roll.png);
+    width: 121px;
+    height: 23px;
+    transform: scale(3);
+    animation: rollout 1s steps(7) infinite;
+}
+
+@keyframes rollout {
+    100%{
+        background-position: 0px 0px;
+    }
+
+    0%{
+        background-position: 0px 161px;
+    }
+} */
