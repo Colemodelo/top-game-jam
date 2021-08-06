@@ -84,15 +84,25 @@ function renderQuestion() {
   var prompt = document.getElementById("prompt")
   box.style.display = "block"
   prompt.style.display = "block"
+
   prompt.innerHTML = mathObj.promptString
+
   let answer1 = document.getElementById("answer0")
   answer1.innerHTML = mathObj.answers[0]
+  answer1.style.display = "block"
+  
   let answer2 = document.getElementById("answer1")
   answer2.innerHTML = mathObj.answers[1]
+  answer2.style.display = "block"
+
   let answer3 = document.getElementById("answer2")
   answer3.innerHTML = mathObj.answers[2]
+  answer3.style.display = "block"
+
   let answer4 = document.getElementById("answer3")
   answer4.innerHTML = mathObj.answers[3]
+  answer4.style.display = "block"
+
   moveTime(difficultyTime)
 } // Generates random math question using askMath() and inserts into DOM
 
@@ -125,10 +135,23 @@ function moveTime(time) {
 
 function gameOver(winLose) {
   clearInterval(timerObj)
+
   let box = document.getElementById("box")
   let startBtn = document.getElementById("startBtn")
+  let prompt = document.getElementById("prompt")
+  let answer0 = document.getElementById("answer0")
+  let answer1 = document.getElementById("answer1")
+  let answer2 = document.getElementById("answer2")
+  let answer3 = document.getElementById("answer3")
+  
+  prompt.style.display = "none"
+  answer0.style.display = "none"
+  answer1.style.display = "none"
+  answer2.style.display = "none"
+  answer3.style.display = "none"
   box.style.display = "block"
   startBtn.style.display = "block"
+  
   
   switch (winLose) {
     case "win":
@@ -197,7 +220,6 @@ function playerAnimate(animation) {
 function renderHealth() {
   let playerHealth = document.getElementById("playerHealth")
   let enemyHealth = document.getElementById("enemyHealth")
-
   // Remove all playerHearts
   while (playerHealth.firstChild) {
     playerHealth.removeChild(playerHealth.lastChild);
@@ -221,16 +243,16 @@ function renderHealth() {
 } // Clears playerHearts and inserts amount of elements to the value of playerHearts variable
 
 
-function chooseDifficulty() {
-  // ask difficulty
-  document.getElementById("box").style.display = "block"
-  document.getElementById("prompt").innerHTML = "Choose your difficulty level"
-  // pause execution
-  // start execution again
-}  // (NOT FINISHED) Will show difficulty prompt and edit global difficulty variable
+// function chooseDifficulty() {
+//   // ask difficulty
+//   document.getElementById("box").style.display = "block"
+//   document.getElementById("prompt").innerHTML = "Choose your difficulty level"
+//   // pause execution
+//   // start execution again
+// }  // (NOT FINISHED) Will show difficulty prompt and edit global difficulty variable
 
-function chooseCharacters(){
-} // Inserts character choice prompt elements into DOM and sets global variables
+// function chooseCharacters(){
+// } // Inserts character choice prompt elements into DOM and sets global variables
 
 
 /* --------------------- Checkers (Not a technical term) -------------------- */
