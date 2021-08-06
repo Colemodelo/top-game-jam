@@ -87,21 +87,25 @@ function renderQuestion() {
 
   prompt.innerHTML = mathObj.promptString
 
-  let answer1 = document.getElementById("answer0")
-  answer1.innerHTML = mathObj.answers[0]
-  answer1.style.display = "block"
+  let answer0 = document.getElementById("answer0")
+  answer0.innerHTML = mathObj.answers[0]
+  answer0.style.display = "block"
+  // answer0.addEventListener("click", checkAnswer('answer0'))
   
-  let answer2 = document.getElementById("answer1")
-  answer2.innerHTML = mathObj.answers[1]
+  let answer1 = document.getElementById("answer1")
+  answer1.innerHTML = mathObj.answers[1]
+  answer1.style.display = "block"
+  // answer1.addEventListener("click", checkAnswer('answer1'))
+
+  let answer2 = document.getElementById("answer2")
+  answer2.innerHTML = mathObj.answers[2]
   answer2.style.display = "block"
+  // answer2.addEventListener("click", checkAnswer('answer2'))
 
-  let answer3 = document.getElementById("answer2")
-  answer3.innerHTML = mathObj.answers[2]
+  let answer3 = document.getElementById("answer3")
+  answer3.innerHTML = mathObj.answers[3]
   answer3.style.display = "block"
-
-  let answer4 = document.getElementById("answer3")
-  answer4.innerHTML = mathObj.answers[3]
-  answer4.style.display = "block"
+  // answer3.addEventListener("click", checkAnswer('answer3'))
 
   moveTime(difficultyTime)
 } // Generates random math question using askMath() and inserts into DOM
