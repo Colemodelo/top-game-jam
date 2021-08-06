@@ -44,7 +44,7 @@ timerObj = ""
 /* -------------------------------------------------------------------------- */
 
 // Add event listener for buttons
-document.getElementById("startBtn").addEventListener("click", game)
+// document.addEventListener("DOMContentLoaded", game)
 
 
 
@@ -337,11 +337,12 @@ function game() {
   // Resets global variables on new game
   resetGlobals()
 
+  renderQuestion()
   // Setup initial game state
   renderHealth()
 
   // Hide start btn, show characters
-  document.getElementById("startBtn").style.display = "none"
+  // document.getElementById("startBtn").style.display = "none"
   document.getElementById("playerChar").style.display = "block"
   document.getElementById("enemyChar").style.display = "block"
 
