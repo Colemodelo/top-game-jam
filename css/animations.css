@@ -22,7 +22,7 @@
     background: url("../assets/blob/blob_idle.png") 0 0 no-repeat;
     animation: animate 0.8s steps(8) infinite;
     transform: scale(4);
-    grid-area: 12 / 17 / 17 / 12;
+    grid-area: 12 / 14 / 17 / 17;
 }
 
 
@@ -52,7 +52,7 @@
     background: url("../assets/blob/blob_move.png") 0 0 no-repeat;
     animation: animate 0.8s steps(8) infinite;
     transform: scale(4);
-    grid-area: 5 / 25 / 15 / 12;
+    grid-area: 5 / 14 / 15 / 17;
 }
 
 @keyframes animate {
