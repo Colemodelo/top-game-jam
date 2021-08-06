@@ -79,13 +79,21 @@ h2{
 /* -------------------------------------------------------------------------- */
 
 #playerHealth {
-	text-align: center;
-	padding-top: 5px;
-	grid-area: 1 / 1 /  1 /  4;
+	grid-area: 2 / 1 /  3 /  4;
 }
+#buckName{
+	grid-area: 1 / 1 / 2 / 4;
+}
+
 #enemyHealth{
+	grid-area: 2 / 14 / 3 / 17;
+}
+#enemyName{
+	grid-area: 1 /14 / 2 / 17;
+}
+
+.health{
 	text-align: center;
-	grid-area: 1 / 14 / 2 / 17;
 	padding-top: 5px;
 }
 
@@ -120,6 +128,7 @@ h2{
 	font-size: 2rem;
 	color: chartreuse;
 	grid-area: 3 / 5 / 5 / 13;
+	margin: auto;
 }
 .hide {
 	display: none;
@@ -130,25 +139,23 @@ h2{
 }
 
 .choice {
-	/* display: flex;
-	justify-content: center;
-	align-items: center;  */
+	text-align: center;
 	background: chartreuse;
 	font-size: 1.5rem;
 	border: 2px solid black;
+	display: none;
 }
 #answer0{
-	display: grid;
-	grid-area: 6 / 6 / 6 / 8;
+	grid-area: 5 / 6 / 6 / 8;
 }
 #answer1{
-	grid-area: 6 / 10 / 6 / 12;
+	grid-area: 5 / 10 / 6 / 12;
 }
 #answer2{
-	grid-area: 8 / 6 / 8 / 8;
+	grid-area: 7 / 6 / 8 / 8;
 }
 #answer3{
-	grid-area: 8 / 10 / 8 / 12;
+	grid-area: 7 / 10 / 8 / 12;
 }
 #startBtn{
 	grid-area: 8 / 8 / 9 / 10;
