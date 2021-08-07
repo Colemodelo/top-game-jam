@@ -69,30 +69,97 @@
 } */
 
 
-/* Buck Images */
+/* skeleton Images */
 
-
-/* #buck-attack {
-    height: 23px;
-    width: 121px;
-    background: url("../assets/buck/attacks.png") 0 0 no-repeat;
-    animation: buck-attack 0.8s steps(12) infinite;
-    transform: scale(4);
+#skeleton-attack {
+    height: 37px;
+    width: 43px;
+    background: url("../assets/skeleton/Skeleton Attack.png") 0 0 no-repeat;
+    animation: skel-attack 0.8s steps(18) infinite;
+    transform: scale(4) scaleX(-1);
     grid-area: 10 / 25 / 15 / 12;
-} */
+}
 
+#skeleton-dead {
+    height: 35px;
+    width: 33px;
+    background: url("../assets/skeleton/Skeleton Dead.png") 0 0 no-repeat;
+    animation: skel-dead 0.8s steps(15) infinite;
+    transform: scale(4) scaleX(-1);
+    grid-area: 10 / 25 / 15 / 12;
+}
 
-/* Buck Animations  */
+#skeleton-hit {
+    height: 32px;
+    width: 30px;
+    background: url("../assets/skeleton/Skeleton Hit.png") 0 0 no-repeat;
+    animation: skel-hit 0.8s steps(8) infinite;
+    transform: scale(4) scaleX(-1);
+    grid-area: 10 / 25 / 15 / 12;
+}
 
+#skeleton-move {
+    height: 33px;
+    width: 22px;
+    background: url("../assets/skeleton/Skeleton\ Walk.png") 0 0 no-repeat;
+    animation: skel-move 0.8s steps(13) infinite;
+    transform: scale(4) scaleX(-1);
+    grid-area: 10 / 25 / 15 / 12;
+}
 
-/* @keyframes buck-attack {
+#skeleton-idle {
+    height: 32px;
+    width: 24px;
+    background: url("../assets/skeleton/Skeleton\ Idle.png") 0 0 no-repeat;
+    animation: skel-idle 0.8s steps(11) infinite;
+    transform: scale(4) scaleX(-1);
+    grid-area: 10 / 25 / 15 / 12;
+}
+
+@keyframes skel-idle {
     from {
         background-position: 0;
     }
     to {
-        background-position: -276px;
+        background-position: -264px;
     }
-} */
+}
+
+@keyframes skel-move {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -286px;
+    }
+}
+
+@keyframes skel-attack {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -774px;
+    }
+}
+
+@keyframes skel-dead {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -495px;
+    }
+}
+
+@keyframes skel-hit {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -240px;
+    }
+}
 
 
 /* Blob Animations  */
