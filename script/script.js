@@ -294,7 +294,7 @@ function roundLose() {
   if (playerHearts <= 0) {
     gameOver("lose")
   } else {
-    newRound()
+    newTurn()
   }
 } // Clears timer, animate enemy, decrement playerHearts
  
@@ -308,13 +308,50 @@ function roundWin(){
   if (enemyHearts <= 0) {
     gameOver("win")
   } else {
-    newRound()
+    newTurn()
   }
 } // Clears timer, animate player
 
 /* -------------------------------------------------------------------------- */
-/*                            Show / Hide Elements                            */
+/*                            Countdown                                       */
 /* -------------------------------------------------------------------------- */
+function countDown( parent, callback ){
+    // These are all the text we want to display
+    var texts = ['3', '2', '1', 'Fight!'];
+    // This will store the paragraph we are currently displaying
+    var paragraph = null;
+    // Initiate an interval, but store it in a variable so we can remove it later.
+    var interval = setInterval( count, 1000 );
+
+  // This is the function we will call every 1000 ms using setInterval
+  
+  function count(){
+    if( paragraph ){
+      // Remove the paragraph if there is one
+      paragraph.remove();
+    }
+    if( texts.length === 0 ){ 
+      // If we ran out of text, use the callback to get started
+      // Also, remove the interval
+      // Also, return since we dont want this function to run anymore.
+      clearInterval( interval );
+      callback();
+      return;
+    }
+    // Get the first item of the array out of the array.
+    // Your array is now one item shorter.
+    var text = texts.shift();
+
+    // Create a paragraph to add to the DOM
+    // This new paragraph will trigger an animation
+    paragraph = document.createElement("p");
+    paragraph.textContent = text;
+    paragraph.className = text + " nums";
+
+    parent.appendChild( paragraph );
+  }
+
+}
 
 
 /* -------------------------------------------------------------------------- */
@@ -324,20 +361,17 @@ function roundWin(){
 function newRound(){
   var messageBox = document.getElementById("messageBox")
   messageBox.style.display="block"
-  messageBox.innerHTML = "Round " + round + ": FIGHT!"
-  setTimeout(function(){ renderQuestion(); }, 3000);
-}
+  countDown(document.getElementById("messageBox"), newTurn)
+  }
 
 function newTurn(){
   renderQuestion();
-
 }
 
 function game() {
   // Resets global variables on new game
   resetGlobals()
 
-  renderQuestion()
   // Setup initial game state
   renderHealth()
 
