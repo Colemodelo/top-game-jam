@@ -40,15 +40,6 @@ timerObj = ""
 
 
 /* -------------------------------------------------------------------------- */
-/*                               Event Listeners                              */
-/* -------------------------------------------------------------------------- */
-
-// Add event listener for buttons
-// document.addEventListener("DOMContentLoaded", game)
-
-
-
-/* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
@@ -255,18 +246,6 @@ function renderHealth() {
 } // Clears playerHearts and inserts amount of elements to the value of playerHearts variable
 
 
-// function chooseDifficulty() {
-//   // ask difficulty
-//   document.getElementById("box").style.display = "block"
-//   document.getElementById("prompt").innerHTML = "Choose your difficulty level"
-//   // pause execution
-//   // start execution again
-// }  // (NOT FINISHED) Will show difficulty prompt and edit global difficulty variable
-
-// function chooseCharacters(){
-// } // Inserts character choice prompt elements into DOM and sets global variables
-
-
 /* --------------------- Checkers (Not a technical term) -------------------- */
 
 function checkAnswer(chosenAnswerDivId) {
@@ -277,6 +256,13 @@ function checkAnswer(chosenAnswerDivId) {
     roundLose()
   }
 } // Returns true or false depending on if math question is answered correctly
+
+
+/* --------------------------------- Setters -------------------------------- */
+
+// setMessage(){
+
+// }
 
 
 /* --------------------------------- Rounds --------------------------------- */
@@ -294,7 +280,7 @@ function roundLose() {
   if (playerHearts <= 0) {
     gameOver("lose")
   } else {
-    newRound()
+    newTurn()
   }
 } // Clears timer, animate enemy, decrement playerHearts
  
@@ -306,15 +292,52 @@ function roundWin(){
   renderHealth()
 
   if (enemyHearts <= 0) {
-    gameOver("win")
+
+    setTimeout(function(){ newRound(); }, 3000);
+
   } else {
-    newRound()
+    newTurn()
   }
 } // Clears timer, animate player
 
 /* -------------------------------------------------------------------------- */
-/*                            Show / Hide Elements                            */
+/*                            Countdown                                       */
 /* -------------------------------------------------------------------------- */
+function countDown( parent, callback ){
+    // These are all the text we want to display
+    var texts = ['3', '2', '1', 'Fight!'];
+    // This will store the paragraph we are currently displaying
+    // Initiate an interval, but store it in a variable so we can remove it later.
+    var interval = setInterval( count, 1000 );
+
+  // This is the function we will call every 1000 ms using setInterval
+  function count(){
+    if( paragraph ){
+      // Remove the paragraph if there is one
+      paragraph.remove();
+    }
+    if( texts.length === 0 ){ 
+      // If we ran out of text, use the callback to get started
+      // Also, remove the interval
+      // Also, return since we dont want this function to run anymore.
+      clearInterval( interval );
+      callback();
+      return;
+    }
+    // Get the first item of the array out of the array.
+    // Your array is now one item shorter.
+    var text = texts.shift();
+
+    // Create a paragraph to add to the DOM
+    // This new paragraph will trigger an animation
+    paragraph = document.createElement("p");
+    paragraph.textContent = text;
+    paragraph.className = text + " nums";
+
+    parent.appendChild( paragraph );
+  }
+
+}
 
 
 /* -------------------------------------------------------------------------- */
@@ -323,21 +346,24 @@ function roundWin(){
 
 function newRound(){
   var messageBox = document.getElementById("messageBox")
-  messageBox.innerHTML = "Round " + round + ": FIGHT!"
+  messageBox.style.display="block"
+  paragraph = document.createElement("p");
+  paragraph.textContent = `Round ${round}`;
+  paragraph.className = 'logo';
+
+  messageBox.appendChild( paragraph );
+  setTimeout(function(){ countDown(messageBox, newTurn); }, 2000);
+  
+  }
+
+function newTurn(){
   renderQuestion();
-  // setTimeout(function(){ renderQuestion(); }, 3000);
-
-  
-
-  
 }
-
 
 function game() {
   // Resets global variables on new game
   resetGlobals()
 
-  renderQuestion()
   // Setup initial game state
   renderHealth()
 

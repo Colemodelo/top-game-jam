@@ -88,123 +88,46 @@
     /* background: url("../assets/buck/buck-idle.gif") 0 0 no-repeat; */
 
 }
-/* 
-.idle {
-    margin-top: 10vh;
-    background-color: var(--text-accent);
-    background: url(../images/idle.png);
-    height: 23px;
-    width: 121px;
-    transform: scale(3);
-    animation: stand 1s steps(5) infinite;
+
+/* -------------------------------------------------------------------------- */
+/*                                    Snail                                   */
+/* -------------------------------------------------------------------------- */
+/* Snail Images */
+
+
+.snail-hurt {
+    height: 238px;
+    width: 32px;
+    background: url("../assets/snail/snail_hurt.png") 0 0 no-repeat;
+    animation: snailHurt 1.0s steps(7) infinite;
+    transform: scale(4);
+    grid-area: 10 / 25 / 15 / 12;
+} 
+
+
+.snail-idle {
+    height: 204px;
+    width: 32px;
+    background: url("../assets/snail/snail_idle.png") 0 0 no-repeat;
+    animation: snailIdle 1.0s steps(6) infinite;
+    transform: scale(4);
+    grid-area: 10 / 25 / 15 / 12;
 }
 
-@keyframes stand {
-    100%{
-        background-position: 0px 0px;
+@keyframes snailHurt {
+    from {
+        background-position: 0;
     }
-
-    0%{
-        background-position: 0px 115px;
-    }
-}
-
-.chick {
-    margin-top: 5vh;
-    background-color: transparent;
-    background: url(../images/Hit\ \(32x34\).png);
-    height: 34px;
-    width: 31px;
-    transform: scale(3);
-    animation: hit .5s steps(5) infinite;
-}
-
-@keyframes hit {
-    100%{
-        background-position: 160px 0px;
-    }
-
-    0%{
-        background-position: 0px 0px;
+    to {
+        background-position: -238px;
     }
 }
 
-.bhit {
-    margin-top: 5vh;
-    background-color: #fff;
-    background: url(../images/damaged.png);
-    width: 121px;
-    height: 23px;
-    transform: scale(3);
-    animation: bdam 1s steps(2) infinite;
-}
-
-@keyframes bdam {
-    100%{
-        background-position: 0px 46px;
+@keyframes snailIdle {
+    from {
+        background-position: 0;
     }
-
-    0%{
-        background-position: 0px 0px;
+    to {
+        background-position: -204px;
     }
 }
-
-.bat {
-    margin-top: 5vh;
-    background-color: #fff;
-    background: url(../images/attacks.png);
-    width: 121px;
-    height: 23px;
-    transform: scale(3);
-    animation: punch 1s steps(12) infinite;
-}
-
-@keyframes punch {
-    100%{
-        background-position: 0px 276px;
-    }
-
-    0%{
-        background-position: 0px 0px;
-    }
-}
-
-.douken {
-    margin-top: 5vh;
-    background-color: #fff;
-    background: url(../images/hadouken.png);
-    width: 121px;
-    height: 23px;
-    transform: scale(3);
-    animation: kame 1s steps(14) infinite;
-}
-
-@keyframes kame {
-    100%{
-        background-position: 0px 0px;
-    }
-
-    0%{
-        background-position: 0px 322px;
-    }
-}
-
-.roll {
-    margin-top: 5vh;
-    background-color: #fff;
-    background: url(../images/roll.png);
-    width: 121px;
-    height: 23px;
-    transform: scale(3);
-    animation: rollout 1s steps(7) infinite;
-}
-
-@keyframes rollout {
-    100%{
-        background-position: 0px 0px;
-    }
-
-    0%{
-        background-position: 0px 161px;
-    }
-} */
