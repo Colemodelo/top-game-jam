@@ -289,15 +289,15 @@ function roundWin(){
 
 function newRound(){
   var messageBox = document.getElementById("messageBox")
+  messageBox.style.display="block"
   messageBox.innerHTML = "Round " + round + ": FIGHT!"
-  renderQuestion();
-  // setTimeout(function(){ renderQuestion(); }, 3000);
-
-  
-
-  
+  setTimeout(function(){ renderQuestion(); }, 3000);
 }
 
+function newTurn(){
+  renderQuestion();
+
+}
 
 function game() {
   // Resets global variables on new game
