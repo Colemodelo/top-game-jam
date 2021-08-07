@@ -109,7 +109,6 @@ h2{
 	align-items: center;
 	grid-area: 3 / 5 / 10 / 13;
 	text-align: center;
-	display: none;
 }
 
 /* --------------------------- Math Questions Box --------------------------- */
@@ -128,6 +127,7 @@ h2{
 	color: chartreuse;
 	grid-area: 3 / 5 / 5 / 13;
 	margin: auto;
+	display: none;
 }
 .hide {
 	display: none;
@@ -182,4 +182,10 @@ h2{
     text-align: center;
     animation: count 0.1s cubic-bezier(0.1,0.1,1,1) 1;
     
+}
+
+/* ---------------------------------- Round --------------------------------- */
+
+.roundMessage {
+	
 }
