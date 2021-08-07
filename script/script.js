@@ -4,14 +4,19 @@
 
 /* -------------------------------- Settings -------------------------------- */
 
-var maxPlayerHearts = 5
-var maxEnemyHearts = 5
-var maxRound = 5
-var difficultyTime = 10
+const maxPlayerHearts = 5
+const maxEnemyHearts = 5
+const maxRound = 5
+const maxDifficultyTime = 10
+const difficultyTimeOffset = 3
+
+/* --------------------------- Game Data Variables -------------------------- */
 
 var enemies = ['Slime', 'Skeleton', 'Snail', 'Wizard']
 var playerAnimations = ["idle"]
 var enemyAnimations = ["blob-idle", "blob-move", "blob-attack", "blob-death"]
+
+/* ------------------------------- Initialize ------------------------------- */
 
 var mathObj = {
   promptString: "",
@@ -19,19 +24,20 @@ var mathObj = {
   correctAnswer: 0,
 }
 
-/* ------------------------------- Initialize ------------------------------- */
 var enemyHearts
 var playerHearts
 var round
+var difficultyTime
 var timerObj = ""
 var paragraph = ""
 
 
-// Resets globals when play again
+/* ------------------------------ Reset Globals ----------------------------- */
+
 function resetGlobals() {
   playerHearts = maxPlayerHearts
   enemyHearts = maxEnemyHearts
-  difficultyTime = difficultyTime
+  difficultyTime = maxDifficultyTime
   round = maxRound - maxRound + 1
 
   mathObj = {
@@ -39,7 +45,6 @@ function resetGlobals() {
     answers: [],
     correctAnswer: 0,
   }
-
   // Initializes empty timer object
   timerObj = ""
 }
@@ -389,7 +394,7 @@ function countDown(parent, callback) {
 
 function newRound() {
   enemyHearts = maxEnemyHearts
-  difficultyTime = difficultyTime - 3
+  difficultyTime = difficultyTime - difficultyTimeOffset
   renderHealth()
 
   if (round == maxRound && enemyHearts <= 0) {
@@ -413,6 +418,9 @@ function newTurn() {
     displayBox(false)
     gameOver('lose')
   } else if (enemyHearts <= 0) {
+    if (round == maxRound) {
+      gameOver('win')
+    }
     round = round + 1
     console.log(round)
     displayBox(false)
