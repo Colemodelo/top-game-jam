@@ -1,0 +1,116 @@
+
+:root {
+    --text-primary: #ffe7c0;
+    --text-secondary: #cc9250;
+    --text-accent: #ff3300;
+    --bg-primary: #112f52;
+    --bg-secondary: #403947;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.3rem;
+    font-family: 'VT323', monospace, sans-serif;
+    background-color: var(--bg-primary);
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.logo{
+    margin-top: 20vh;
+    color: var(--text-primary);
+    animation: spin 2s linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+        margin-top: 120vh;
+    }
+    to {
+        transform: rotate(1080deg);
+        margin-top: 20vh;
+    }
+}
+
+a {
+    text-decoration: none;
+    font-size: 4.5rem;
+    background-color: var(--bg-secondary);
+    color: #000;
+    border-radius: 16px;
+    padding: 1rem;
+    animation: click 1s /* linear */ infinite;
+    animation-delay: 1s;
+}
+
+@keyframes click {
+    50% {
+      color: var(--text-accent);
+      background-color: var(--text-primary);
+    }
+}
+
+.btn{
+    margin-top: 9vh;
+}
+
+.team{
+    color: var(--text-primary);
+    font-size: 2rem;
+    margin-top: 3vh;
+}
+
+.hero{
+    padding: 3rem;
+}
+
+.dev {
+    margin: auto;
+    color: var(--text-primary);
+    font-size: 2rem;
+    text-align: center;
+    /* animation: slidel 4s; */
+    
+}
+
+/* @keyframes slidel {
+    from {
+        margin-left: 100%;
+        width: 300%;
+      }
+    
+      to {
+        margin-left: 0%;
+        width: 100%;
+      }
+} */
+
+.ease{
+    animation: fadein 4s;
+    animation-iteration-count: 1;
+}
+
+@keyframes fadein {
+    
+    from {
+        opacity: 0%;
+    }
+    50%{
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
