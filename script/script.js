@@ -85,28 +85,20 @@ function askMath() {
 function renderQuestion() {
   askMath()
   var prompt = document.getElementById("prompt")
-
+  displayBox(true)
   prompt.innerHTML = mathObj.promptString
 
   let answer0 = document.getElementById("answer0")
   answer0.innerHTML = mathObj.answers[0]
-  answer0.style.display = "block"
-  // answer0.addEventListener("click", checkAnswer('answer0'))
 
   let answer1 = document.getElementById("answer1")
   answer1.innerHTML = mathObj.answers[1]
-  answer1.style.display = "block"
-  // answer1.addEventListener("click", checkAnswer('answer1'))
 
   let answer2 = document.getElementById("answer2")
   answer2.innerHTML = mathObj.answers[2]
-  answer2.style.display = "block"
-  // answer2.addEventListener("click", checkAnswer('answer2'))
 
   let answer3 = document.getElementById("answer3")
   answer3.innerHTML = mathObj.answers[3]
-  answer3.style.display = "block"
-  // answer3.addEventListener("click", checkAnswer('answer3'))
 
   moveTime(difficultyTime)
 } // Generates random math question using askMath() and inserts into DOM
@@ -151,7 +143,6 @@ function gameOver(winLose) {
       break
     case "lose":
       document.getElementById("playerChar").setAttribute("src", "")
-
       setMessage('You Have Been Defeated')
       break
   }
@@ -344,7 +335,6 @@ function turnWin() {
   renderHealth()
 
   if (enemyHearts <= 0) {
-    console.log(round)
     displayBox(false)
     setMessage(`${enemies[round-1]} has been defeated!`)
     enemyAnimate('death')
@@ -409,8 +399,9 @@ function newRound() {
   renderHealth()
   enemyAnimate()
 
-
-  if (round == maxRound && enemyHearts <= 0) {
+  if (round >= maxRound+1) {
+    gameOver('win')
+  } else if (round == maxRound && enemyHearts <= 0) {
     displayBox(false)
     gameOver('win')
   } else if (playerHearts <= 0) {
@@ -431,12 +422,6 @@ function newTurn() {
     displayBox(false)
     gameOver('lose')
   } else if (enemyHearts <= 0) {
-    if (round == maxRound) {
-      gameOver('win')
-    }
-    round = round + 1
-    console.log(round)
-    displayBox(false)
     setMessage(`${enemies[round-1]} has been defeated!`)
 
     setTimeout(function () {
