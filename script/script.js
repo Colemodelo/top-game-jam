@@ -399,10 +399,9 @@ function newRound() {
   renderHealth()
   enemyAnimate()
 
-  if (round >= maxRound) {
+  if (round >= maxRound+1) {
     gameOver('win')
-  }
-  if (round == maxRound && enemyHearts <= 0) {
+  } else if (round == maxRound && enemyHearts <= 0) {
     displayBox(false)
     gameOver('win')
   } else if (playerHearts <= 0) {
@@ -423,10 +422,6 @@ function newTurn() {
     displayBox(false)
     gameOver('lose')
   } else if (enemyHearts <= 0) {
-    if (round >= maxRound) {
-      gameOver('win')
-    }
-
     setMessage(`${enemies[round-1]} has been defeated!`)
 
     setTimeout(function () {
