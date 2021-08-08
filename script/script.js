@@ -6,15 +6,13 @@
 
 const maxPlayerHearts = 5
 const maxEnemyHearts = 5
-const maxRound = 5
+const maxRound = 4
 const maxDifficultyTime = 10
-const difficultyTimeOffset = 3
+const difficultyTimeOffset = 2
 
 /* --------------------------- Game Data Variables -------------------------- */
 
-var enemies = ['Slime', 'Skeleton', 'Snail', 'Wizard']
-var playerAnimations = ["idle"]
-var enemyAnimations = ["blob-idle", "blob-move", "blob-attack", "blob-death"]
+var enemies = ['blob', 'skeleton', 'mushroom', 'wizard']
 
 /* ------------------------------- Initialize ------------------------------- */
 
@@ -148,9 +146,12 @@ function gameOver(winLose) {
 
   switch (winLose) {
     case "win":
+      document.getElementById("enemyChar").setAttribute('class', '')
       setMessage('You Win The Game!')
       break
     case "lose":
+      document.getElementById("playerChar").setAttribute("src", "")
+
       setMessage('You Have Been Defeated')
       break
   }
@@ -163,10 +164,16 @@ function enemyAnimate(animation) {
   let character = document.getElementById("enemyChar")
   switch (animation) {
     case "attack":
-      character.setAttribute("class", "blob-attack")
+      character.setAttribute("class", `${enemies[round-1]}-attack`)
       break
     case "move":
-      character.setAttribute("class", "blob-move")
+      character.setAttribute("class", `${enemies[round-1]}-move`)
+      break
+    case "death":
+      character.setAttribute("class", `${enemies[round-1]}-death`)
+      break
+    case "damaged":
+      character.setAttribute("class", `${enemies[round-1]}-damaged`)
       break
     case "fullAttackAnimation":
       enemyAnimate("move")
@@ -183,7 +190,7 @@ function enemyAnimate(animation) {
       }, 2800);
       break
     default:
-      character.setAttribute("class", "blob-idle")
+      character.setAttribute("class", `${enemies[round-1]}-idle`)
   }
 } // Enemy Animate
 
@@ -211,10 +218,11 @@ function playerAnimate(animation) {
       playerAnimate("move")
       setTimeout(function () {
         playerAnimate("attack");
-        enemyAnimate("damage")
+        enemyAnimate("damaged")
       }, 800);
       setTimeout(function () {
-        playerAnimate("move");
+        enemyAnimate()
+        playerAnimate("move")
         playerAnimate()
       }, 2000);
       setTimeout(function () {
@@ -317,7 +325,10 @@ function turnLose() {
   // Check if playerHearts depleted, and if not start new round
 
   if (playerHearts <= 0) {
-    newRound()
+    playerAnimate('damaged')
+    setTimeout(function () {
+      newRound();
+    }, 2000);
   } else {
     newTurn()
   }
@@ -333,11 +344,10 @@ function turnWin() {
   renderHealth()
 
   if (enemyHearts <= 0) {
-    round = round + 1
     console.log(round)
     displayBox(false)
-    setMessage(`${enemies[round-2]} has been defeated!`)
-
+    setMessage(`${enemies[round-1]} has been defeated!`)
+    enemyAnimate('death')
     setTimeout(function () {
       newRound();
     }, 2000);
@@ -393,9 +403,12 @@ function countDown(parent, callback) {
 
 
 function newRound() {
+  round = round + 1
   enemyHearts = maxEnemyHearts
   difficultyTime = difficultyTime - difficultyTimeOffset
   renderHealth()
+  enemyAnimate()
+
 
   if (round == maxRound && enemyHearts <= 0) {
     displayBox(false)
