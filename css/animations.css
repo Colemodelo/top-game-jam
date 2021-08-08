@@ -203,7 +203,7 @@
     background: url("../assets/wizard/Attack1.png") 0 0 no-repeat;
     animation: wiz-attack 0.8s steps(8) infinite;
     transform: scale(2) scaleX(-1);
-    grid-area: 10 / 25 / 15 / 5;
+    grid-area: 11 / 25 / 15 / 5;
 }
 
 .wizard-attack-2 {
@@ -212,7 +212,7 @@
     background: url("../assets/wizard/Attack2.png") 0 0 no-repeat;
     animation: wiz-attack 0.8s steps(8) infinite;
     transform: scale(2) scaleX(-1);
-    grid-area: 10 / 25 / 15 / 12;
+    grid-area: 11 / 25 / 15 / 12;
 }
 
 .wizard-death {
@@ -221,7 +221,7 @@
     background: url("../assets/wizard/Death.png") 0 0 no-repeat;
     animation: wiz-death 0.8s steps(7) infinite;
     transform: scale(2) scaleX(-1);
-    grid-area: 10 / 25 / 15 / 12;
+    grid-area: 11 / 25 / 15 / 12;
 }
 
 .wizard-damaged {
@@ -230,7 +230,7 @@
     background: url("../assets/wizard/Hit.png") 0 0 no-repeat;
     animation: wiz-hit 0.8s steps(4) infinite;
     transform: scale(2) scaleX(-1);
-    grid-area: 10 / 25 / 15 / 12;
+    grid-area: 11 / 25 / 15 / 12;
 }
 
 .wizard-idle {
@@ -239,7 +239,7 @@
     background: url("../assets/wizard/Idle.png") 0 0 no-repeat;
     animation: wiz-idle 0.8s steps(6) infinite;
     transform: scale(2) scaleX(-1);
-    grid-area: 10 / 25 / 15 / 12;
+    grid-area: 11 / 25 / 15 / 12;
 }
 
 .wizard-move {
@@ -248,7 +248,7 @@
     background: url("../assets/wizard/Run.png") 0 0 no-repeat;
     animation: wiz-attack 0.8s steps(8) infinite;
     transform: scale(2) scaleX(-1);
-    grid-area: 10 / 25 / 15 / 12;
+    grid-area: 11 / 25 / 15 / 12;
 }
 @keyframes wiz-attack {
     from {
