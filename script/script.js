@@ -246,7 +246,7 @@ function renderHealth() {
     playerHealth.appendChild(img)
 
     // Render "Buck's Health:" text
-    buckName.innerHTML = "Buck's Health:"
+    buckName.innerHTML = "Buck's Health"
   }
   // Remove all enemyHearts
   while (enemyHealth.firstChild) {
@@ -259,7 +259,7 @@ function renderHealth() {
     enemyHealth.appendChild(img)
 
     // Render "Enemies Health:" text
-    enemyName.innerHTML = "Enemies"
+    enemyName.innerHTML = "Enemies Health"
   }
 } // Clears playerHearts and inserts amount of elements to the value of playerHearts variable
 
