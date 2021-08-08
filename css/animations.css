@@ -1,20 +1,35 @@
-#playerChar{
-    border: none;
+
+/* -------------------------------------------------------------------------- */
+/*                                    Buck                                    */
+/* -------------------------------------------------------------------------- */
+
+.buck{
+	height: 175px;
+	grid-area: 17 / 2 /  11 / 5;
 }
-#enemyChar{
-    overflow: hidden;
+
+.buck-idle{
+	height: 175px;
+	grid-area: 17 / 2 /  11 / 5;
+}
+.buck-damaged{
+	height: 175px;
+	grid-area: 17 / 2 /  11 / 5;
+}
+.buck-attacks{
+	height: 175px;
+	grid-area: 17 / 2 /  11 / 5;
+    transform: translateX(500px);
+}
+.buck-running{
+	height: 175px;
+	grid-area: 17 / 2 /  11 / 5;
 }
 
 
 /* -------------------------------------------------------------------------- */
 /*                                    Blob                                    */
 /* -------------------------------------------------------------------------- */
-
-/* .blob {
-    height: 800px;
-    width: 80px;
-} */
-
 
 .blob-idle {
     height: 175px;
@@ -27,6 +42,15 @@
 
 
 .blob-death {
+    height: 640px;
+    width: 80px;
+    background: url("../assets/blob/blob_death.png") 0 0 no-repeat;
+    animation: animate 0.8s steps(8) infinite;
+    transform: scale(4);
+    grid-area: 5 / 20 / 15 / 15;
+}
+
+.blob-damaged {
     height: 640px;
     width: 80px;
     background: url("../assets/blob/blob_death.png") 0 0 no-repeat;
@@ -73,125 +97,54 @@
     }
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                    Buck                                    */
-/* -------------------------------------------------------------------------- */
-
-.buck{
-	height: 175px;
-	grid-area: 17 / 2 /  11 / 5;
-}
-
-.buck-idle{
-	height: 175px;
-	grid-area: 17 / 2 /  11 / 5;
-}
-.buck-damaged{
-	height: 175px;
-	grid-area: 17 / 2 /  11 / 5;
-}
-.buck-attacks{
-	height: 175px;
-	grid-area: 17 / 2 /  11 / 5;
-    transform: translateX(500px);
-}
-.buck-running{
-	height: 175px;
-	grid-area: 17 / 2 /  11 / 5;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                                    Snail                                   */
-/* -------------------------------------------------------------------------- */
-/* Snail Images */
-
-
-.snail-hurt {
-    height: 238px;
-    width: 32px;
-    background: url("../assets/snail/snail_hurt.png") 0 0 no-repeat;
-    animation: snailHurt 1.0s steps(7) infinite;
-    transform: scale(4);
-    grid-area: 10 / 25 / 15 / 12;
-} 
-
-
-.snail-idle {
-    height: 204px;
-    width: 32px;
-    background: url("../assets/snail/snail_idle.png") 0 0 no-repeat;
-    animation: snailIdle 1.0s steps(6) infinite;
-    transform: scale(4);
-    grid-area: 10 / 25 / 15 / 12;
-}
-
-@keyframes snailHurt {
-    from {
-        background-position: 0;
-    }
-    to {
-        background-position: -238px;
-    }
-}
-
-@keyframes snailIdle {
-    from {
-        background-position: 0;
-    }
-    to {
-        background-position: -204px;
-    }
-}
 
 /* -------------------------------------------------------------------------- */
 /*                                  Skeleton                                  */
 /* -------------------------------------------------------------------------- */
 
-/* skeleton Images */
-
-#skeleton-attack {
+.skeleton-attack {
     height: 37px;
     width: 43px;
-    background: url("../assets/skeleton/Skeleton Attack.png") 0 0 no-repeat;
+    background: url("../assets/skeleton/Skeleton_Attack.png") 0 0 no-repeat;
     animation: skel-attack 0.8s steps(18) infinite;
-    transform: scale(4) scaleX(-1);
-    grid-area: 10 / 25 / 15 / 12;
+    transform: scale(5) scaleX(-1);
+    grid-area: 13 / 5 / 15 / 13;
 }
 
-#skeleton-dead {
+.skeleton-death {
     height: 35px;
     width: 33px;
-    background: url("../assets/skeleton/Skeleton Dead.png") 0 0 no-repeat;
+    background: url("../assets/skeleton/Skeleton_Dead.png") 0 0 no-repeat;
     animation: skel-dead 0.8s steps(15) infinite;
-    transform: scale(4) scaleX(-1);
-    grid-area: 10 / 25 / 15 / 12;
+    transform: scale(5) scaleX(-1);
+    grid-area: 13 / 25 / 15 / 13;
 }
 
-#skeleton-hit {
+.skeleton-damaged {
     height: 32px;
     width: 30px;
-    background: url("../assets/skeleton/Skeleton Hit.png") 0 0 no-repeat;
+    background: url("../assets/skeleton/Skeleton_Hit.png") 0 0 no-repeat;
     animation: skel-hit 0.8s steps(8) infinite;
-    transform: scale(4) scaleX(-1);
-    grid-area: 10 / 25 / 15 / 12;
+    transform: scale(5) scaleX(-1);
+    grid-area: 13 / 25 / 15 / 13;
 }
 
-#skeleton-move {
+.skeleton-move {
     height: 33px;
     width: 22px;
-    background: url("../assets/skeleton/Skeleton\ Walk.png") 0 0 no-repeat;
+    background: url("../assets/skeleton/Skeleton_Walk.png") 0 0 no-repeat;
     animation: skel-move 0.8s steps(13) infinite;
-    transform: scale(4) scaleX(-1);
-    grid-area: 10 / 25 / 15 / 12;
+    transform: scale(5) scaleX(-1);
+    grid-area: 13 / 25 / 15 / 13;
 }
 
-#skeleton-idle {
+.skeleton-idle {
     height: 32px;
     width: 24px;
-    background: url("../assets/skeleton/Skeleton\ Idle.png") 0 0 no-repeat;
+    background: url("../assets/skeleton/Skeleton_Idle.png") 0 0 no-repeat;
     animation: skel-idle 0.8s steps(11) infinite;
-    transform: scale(4) scaleX(-1);
-    grid-area: 10 / 25 / 15 / 12;
+    transform: scale(5) scaleX(-1);
+    grid-area: 13 / 17 / 15 / 13;
 }
 
 @keyframes skel-idle {
@@ -236,5 +189,217 @@
     }
     to {
         background-position: -240px;
+    }
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                   Wizard                                   */
+/* -------------------------------------------------------------------------- */
+
+.wizard-attack {
+    height: 190px;
+    width: 233.5px;
+    background: url("../assets/wizard/Attack1.png") 0 0 no-repeat;
+    animation: wiz-attack 0.8s steps(8) infinite;
+    transform: scale(2) scaleX(-1);
+    grid-area: 10 / 25 / 15 / 5;
+}
+
+.wizard-attack-2 {
+    height: 190px;
+    width: 233.5px;
+    background: url("../assets/wizard/Attack2.png") 0 0 no-repeat;
+    animation: wiz-attack 0.8s steps(8) infinite;
+    transform: scale(2) scaleX(-1);
+    grid-area: 10 / 25 / 15 / 12;
+}
+
+.wizard-death {
+    height: 190px;
+    width: 231px;
+    background: url("../assets/wizard/Death.png") 0 0 no-repeat;
+    animation: wiz-death 0.8s steps(7) infinite;
+    transform: scale(2) scaleX(-1);
+    grid-area: 10 / 25 / 15 / 12;
+}
+
+.wizard-damaged {
+    height: 190px;
+    width: 231px;
+    background: url("../assets/wizard/Hit.png") 0 0 no-repeat;
+    animation: wiz-hit 0.8s steps(4) infinite;
+    transform: scale(2) scaleX(-1);
+    grid-area: 10 / 25 / 15 / 12;
+}
+
+.wizard-idle {
+    height: 190px;
+    width: 231px;
+    background: url("../assets/wizard/Idle.png") 0 0 no-repeat;
+    animation: wiz-idle 0.8s steps(6) infinite;
+    transform: scale(2) scaleX(-1);
+    grid-area: 10 / 25 / 15 / 12;
+}
+
+.wizard-move {
+    height: 190px;
+    width: 231px;
+    background: url("../assets/wizard/Run.png") 0 0 no-repeat;
+    animation: wiz-attack 0.8s steps(8) infinite;
+    transform: scale(2) scaleX(-1);
+    grid-area: 10 / 25 / 15 / 12;
+}
+@keyframes wiz-attack {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -1868px;
+    }
+}
+
+@keyframes wiz-death {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -1617px;
+    }
+}
+
+@keyframes wiz-hit {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -924px;
+    }
+}
+
+@keyframes wiz-idle {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -1386px;
+    }
+}
+
+@keyframes wiz-run {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -1386px;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   shroom                                   */
+/* -------------------------------------------------------------------------- */
+
+.mushroom-attack {
+    height: 150px;
+    width: 150px;
+    background: url("../assets/shroom/Attack.png") 0 0 no-repeat;
+    animation: shroom-attack-run 0.8s steps(8) infinite;
+    transform: scale(4) scaleX(-1);
+    grid-area: 11 / 25 / 15 / 6;
+}
+
+.mushroom-move {
+    height: 150px;
+    width: 150px;
+    background: url("../assets/shroom/Run.png") 0 0 no-repeat;
+    animation: shroom-attack-run 0.9s steps(8) infinite;
+    transform: scale(4) scaleX(-1);
+    grid-area: 11 / 25 / 15 / 12;
+}
+
+.mushroom-death {
+    height: 150px;
+    width: 150px;
+    background: url("../assets/shroom/Death.png") 0 0 no-repeat;
+    animation: shroom-death-idle-hit 0.9s steps(4) infinite;
+    transform: scale(4) scaleX(-1);
+    grid-area: 11 / 25 / 15 / 12;
+}
+
+.mushroom-damaged {
+    height: 150px;
+    width: 150px;
+    background: url("../assets/shroom/Take_Hit.png") 0 0 no-repeat;
+    animation: shroom-death-idle-hit 0.9s steps(4) infinite;
+    transform: scale(4) scaleX(-1);
+    grid-area: 11 / 25 / 15 / 12;
+}
+
+.mushroom-idle {
+    height: 150px;
+    width: 150px;
+    background: url("../assets/shroom/Idle.png") 0 0 no-repeat;
+    animation: shroom-death-idle-hit 0.9s steps(4) infinite;
+    transform: scale(4) scaleX(-1);
+    grid-area:11 / 25 / 15 / 12;
+}
+
+@keyframes shroom-attack-run {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -1200px;
+    }
+}
+
+@keyframes shroom-death-idle-hit {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -600px;
+    }
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                    Snail                                   */
+/* -------------------------------------------------------------------------- */
+
+.snail-hurt {
+    height: 238px;
+    width: 32px;
+    background: url("../assets/snail/snail_hurt.png") 0 0 no-repeat;
+    animation: snailHurt 1.0s steps(7) infinite;
+    transform: scale(4);
+    grid-area: 10 / 25 / 15 / 12;
+} 
+
+
+.snail-idle {
+    height: 204px;
+    width: 32px;
+    background: url("../assets/snail/snail_idle.png") 0 0 no-repeat;
+    animation: snailIdle 1.0s steps(6) infinite;
+    transform: scale(4);
+    grid-area: 10 / 25 / 15 / 12;
+}
+
+@keyframes snailHurt {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -238px;
+    }
+}
+
+@keyframes snailIdle {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -204px;
     }
 }
