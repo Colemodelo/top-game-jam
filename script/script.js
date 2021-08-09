@@ -146,7 +146,7 @@ function gameOver(winLose) {
       setMessage('You Have Been Defeated')
       break
   }
-
+  throw new Error("Game Over");
 }
 
 /* ------------------------------- Animations ------------------------------- */
@@ -393,6 +393,10 @@ function countDown(parent, callback) {
 
 
 function newRound() {
+  if (playerHearts <= 0) {
+    displayBox(false)
+    gameOver('lose')
+  }
   round = round + 1
   enemyHearts = maxEnemyHearts
   difficultyTime = difficultyTime - difficultyTimeOffset
@@ -404,9 +408,6 @@ function newRound() {
   } else if (round == maxRound && enemyHearts <= 0) {
     displayBox(false)
     gameOver('win')
-  } else if (playerHearts <= 0) {
-    displayBox(false)
-    gameOver('lose')
   } else {
     setMessage(`Round ${round}`)
     setTimeout(function () {
