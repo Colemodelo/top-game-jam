@@ -24,7 +24,7 @@ No matter what your experience level, being an engineer means continuously learn
 
 **Sprites:**  
 blob sprite by Warren Clark: https://lionheart963.itch.io/blob-sprite  
-Monster Creatures Fantasy by LuizMelo: https://luizmelo.itch.io/  monsters-creatures-fantasy  
+Monster Creatures Fantasy by LuizMelo: https://luizmelo.itch.io/monsters-creatures-fantasy  
 Wizard Pack by LuizMelo: https://luizmelo.itch.io/wizard-pack  
 Skeleton Sprite Pack by Jesse Munguia: https://jesse-m.itch.io/skeleton-pack  
 Hero - Buck Borris by Penusbmic: https://penusbmic.itch.io/super-ginger-hero  
