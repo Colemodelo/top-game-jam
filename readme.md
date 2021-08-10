@@ -3,7 +3,7 @@ This is the repo for our group's (coleModelo, donSwan, allyGato, ThatGUI) projec
 
 **Demo Link:** https://colemodelo.github.io/top-game-jam/
 
-![Image of 1st level of the game](assets/images/mathAttackV@.png) ![photo of math attack]
+![Math Attack logo](assets/images/mathAttackV@.png)
 
 ## How It's Made:
 
