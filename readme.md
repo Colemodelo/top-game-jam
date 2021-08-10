@@ -3,7 +3,7 @@ This is the repo for our group's (coleModelo, donSwan, allyGato, ThatGUI) projec
 
 **Demo Link:** https://colemodelo.github.io/top-game-jam/
 
-![Math Attack logo](assets/images/mathAttackV@.png)
+![Math Attack logo](assets/images/mathAttackV2.png)
 
 ## How It's Made:
 
@@ -28,7 +28,7 @@ Monster Creatures Fantasy by LuizMelo: https://luizmelo.itch.io/  monsters-creat
 Wizard Pack by LuizMelo: https://luizmelo.itch.io/wizard-pack  
 Skeleton Sprite Pack by Jesse Munguia: https://jesse-m.itch.io/skeleton-pack  
 Hero - Buck Borris by Penusbmic: https://penusbmic.itch.io/super-ginger-hero  
-Sunnyland Enemies Extended Pack by ansimuz: https://ansimuz.itch.io/  sunnyland-enemies-extended-pack?download  
+Sunnyland Enemies Extended Pack by ansimuz: https://ansimuz.itch.io/sunnyland-enemies-extended-pack?download  
 
 **Music:**
 Clement Panchout: https://www.clementpanchout.com/
