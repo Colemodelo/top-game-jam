@@ -22,7 +22,7 @@ No matter what your experience level, being an engineer means continuously learn
 
 ## Credits:
 
-**Sprites:**
+**Sprites:**  
 blob sprite by Warren Clark: https://lionheart963.itch.io/blob-sprite  
 Monster Creatures Fantasy by LuizMelo: https://luizmelo.itch.io/  monsters-creatures-fantasy  
 Wizard Pack by LuizMelo: https://luizmelo.itch.io/wizard-pack  
@@ -30,7 +30,7 @@ Skeleton Sprite Pack by Jesse Munguia: https://jesse-m.itch.io/skeleton-pack
 Hero - Buck Borris by Penusbmic: https://penusbmic.itch.io/super-ginger-hero  
 Sunnyland Enemies Extended Pack by ansimuz: https://ansimuz.itch.io/sunnyland-enemies-extended-pack?download  
 
-**Music:**
+**Music:**  
 Clement Panchout: https://www.clementpanchout.com/
 
 <!-- **Other:** -->
